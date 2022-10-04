@@ -1,99 +1,92 @@
-<h1>{{ page.title }}</h1>
-<article class="bcls-article">
-  <section class="bcls-section">
-    <h2 id="Introduction">Introduction</h2>
-    <p>Videos you put into monetization strategies, like AuthOVD and SVOD, must have an enriched set of metadata defined. In this document you will see how to create new custom fields used in implementing monetization.</p>
-    <p>The sections of this document are as follows:</p>
+<h1>{{page.title}}</h1>  <article class="bcls-article"><section class="bcls-section">
+    <h2 id="Introduction">Présentation</h2>
+    <p>Les vidéos que vous insérez dans des stratégies de monétisation, comme AuthoVD et SVOD, doivent avoir un ensemble enrichi de métadonnées défini. Dans ce document, vous allez voir comment créer de nouveaux champs personnalisés utilisés dans la mise en œuvre de la monétisation.</p>
+    <p>Les sections de ce document sont les suivantes:</p>
     <ol>
-      <li><strong>Rights Management fields</strong> - Specifies the names and functionality of the custom fields that may be needed for monetization implementation.</li>
-      <li><strong>Creating custom fields</strong> - Provides step-by-step instructions on how to create custom fields. In these instructions you will create one of the commonly used rights managements fields.</li>
-      <li><strong>Custom fields implementation details</strong> - Provides details on managing custom fields on the following topics:
+      <li><strong>Champs Rights Management</strong>: spécifie les noms et les fonctionnalités des champs personnalisés qui peuvent être nécessaires pour la mise en œuvre de la monétisation.</li>
+      <li><strong>Création de champs personnalisés</strong>: fournit des instructions détaillées sur la façon de créer des champs personnalisés. Dans ces instructions, vous allez créer l'un des champs de gestion des droits les plus utilisés.</li>
+      <li><strong>Détails</strong> de la mise en œuvre des champs personnalisés: fournit des détails sur la gestion des champs personnalisés sur les sujets suivants:
         <ul>
-          <li>Custom field names</li>
-          <li>Using list values for Brightcove Beacon metadata</li>
-          <li>Editing list values</li>
-          <li>Deleting list values</li>
-          <li>Removing custom fields from an account</li>
+          <li>Noms de champs personnalisés</li>
+          <li>Utilisation des valeurs de liste pour les métadonnées Brightcove Beacon</li>
+          <li>Modification des valeurs de liste</li>
+          <li>Supprimer des valeurs de liste</li>
+          <li>Suppression des champs personnalisés d'un compte</li>
         </ul>
       </li>
-    </ol>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Rights_Management_fields">Rights Management fields</h2>
+    </ol>  </section><section class="bcls-section">
+    <h2 id="Rights_Management_fields">Champs Rights Management</h2>
     <p>
-      To support the monetization and access restrictions for assets, a set of custom fields should be used. As you can have multiples instances of rights management configurations, the suggested approach is to create multiple sets of custom fields. In each instance's name a counter is used to differentiate between them. The first instance should use the counter to 0. Here is an example of these grouped fields actually using a counter value:</p>
-    <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/rights-management.png" alt=""> </figure>
-    <p>For instance, you may need a set to define your advertising used in videos, and another to define specials for a holiday, like New Years.</p>
-    <p>A specific example will help clarify the use of these fields. The following screenshot shows setting Server-Side Ad Insertion (SSAI) used on a video.</p>
-    <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/rights-mamagement-example-avod.png" alt=""> </figure>
-    <p>You can learn the following from this example:</p>
+      Pour prendre en charge la monétisation et les restrictions d'accès aux actifs, un ensemble de champs personnalisés doit être utilisé. Comme vous pouvez avoir plusieurs instances de configurations de gestion des droits, l'approche suggérée consiste à créer plusieurs ensembles de champs personnalisés. Dans le nom de chaque instance, un compteur est utilisé pour les différencier. La première instance doit utiliser le compteur à 0. Voici un exemple de ces champs groupés utilisant réellement une valeur de compteur:</p>   <figure class="bcls-figure"><img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/rights-management.png" alt=""></figure>
+    <p>Par exemple, vous pouvez avoir besoin d'un ensemble pour définir votre publicité utilisée dans les vidéos, et d'un autre pour définir les offres spéciales pour les fêtes, comme le Nouvel An.</p>
+    <p>Un exemple spécifique permettra de clarifier l'utilisation de ces champs. La capture d'écran suivante montre les paramètres SSAI (Server-Side Ad Insertion) utilisés dans une vidéo.</p>   <figure class="bcls-figure"><img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/rights-mamagement-example-avod.png" alt=""></figure>
+    <p>Cet exemple vous permet d'apprendre ce qui suit:</p>
     <ul>
-      <li>Not all the rights management fields in a group must be be assigned values. In this case, only the <em>beacon.rights.&lt;counter&gt;.adConfiguration</em> and <em>beacon.rights.&lt;counter&gt;.type</em> are used.</li>
-      <li>You can use the SSAI configuration ID created in Studio in the Brightcove Beacon custom fields.</li>
-      <li>The counter value for a set of rights management fields can start at 0 (highlighted in yellow).</li>
+      <li>Il n'est pas nécessaire d'affecter des valeurs à tous les champs de gestion des droits d'un groupe. Dans ce cas, seul le<em> beacon.rights.&lt;Counter&gt; .adconfiguration</em> et<em> beacon.rights.&lt;counter&gt; .type</em> sont utilisés.</li>
+      <li>Vous pouvez utiliser l'ID de configuration SSAI créé dans Studio dans les champs personnalisés Brightcove Beacon.</li>
+      <li>La valeur du compteur pour un ensemble de champs de gestion des droits peut commencer à 0 (surligné en jaune).</li>
     </ul>
-    <p>Note that no fields you create will need to have the <strong>Make this Field Required</strong> checkbox checked.</p>
+    <p>Notez qu'aucun champ que vous créez n'aura besoin d'avoir la case à<strong> cocher</strong> Rendre ce champ obligatoire cochée.</p>
     <p>
-      The following table displays custom fields that you MAY have to create based on your implementation.
+      Le tableau suivant présente les champs personnalisés que vous devrez PEUT-ÊTRE créer en fonction de votre implémentation.
     </p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>Display Name</th>
-          <th>Internal Name</th>
+          <th>Nom d'affichage</th>
+          <th>Nom interne</th>
           <th>Type</th>
-          <th>Notes / Examples</th>
+          <th>Remarques/ Exemples</th>
         </tr>
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td>beacon.rights.&lt;counter&gt;.type</td>
+          <td>beacon.droits.&lt;compteur &gt; .type</td>
           <td>beacon_rights_ <br />&lt;counter&gt;_type</td>
-          <td>Text</td>
+          <td>Texte</td>
           <td>
-            * Identifies if the type of monetization for the asset<br> * For the value use one of: <ul>
-              <li>FREE</li>
-              <li>AVOD</li>
+            * Identifie si le type de monétisation de l'actif<br> * Pour la valeur, utilisez l'un des éléments suivants: <ul>
+              <li>GRATUIT</li>
+              <li>ÉVITER</li>
               <li>SVOD</li>
-              <li>INHERIT</li>
+              <li>HÉRITER</li>
             </ul>
-            * Default value: <strong>FREE</strong><br> * The <strong>INHERIT</strong> value is only applicable to <em>Episode</em> assets </td>
+            * Valeur par défaut: <strong>GRATUIT</strong><br> * La<strong> valeur</strong> INHERIT ne s'applique qu'aux<em> actifs de l'</em>épisode </td>
         </tr>
         <tr>
           <td>
-            beacon.rights.<br />
-            &lt;counter&gt;.<br />
-            startDate
+            beacon.droits.<br />
+            &lt;comptoir&gt;.<br />
+            Date de début
           </td>
           <td>
             beacon_rights_ <br />
-            &lt;counter&gt;_<br />
-            startdate
+            &lt;comptoir&gt;_<br />
+            date de début
           </td>
-          <td>Text</td>
+          <td>Texte</td>
           <td>
-            * Date when the asset should be exposed under the access restrictions and monetization options in this particular set<br> * Format: Date yyyy-mm-dd hh:mm:ss<br> * Default value: If not set, defaults to video availability start date </td>
+            * Date à laquelle l'actif doit être exposé aux restrictions d'accès et aux options de monétisation de cet ensemble particulier<br> * Format: Date aaaa-mm-jj hh:mm:ss<br> * Valeur par défaut: Si ce paramètre n'est pas défini, la date de début de disponibilité de la vidéo </td>
         </tr>
         <tr>
-          <td>beacon.rights.&lt;counter&gt;.endDate</td>
+          <td>beacon.droits.&lt;Compteur &gt;. Date de fin</td>
           <td>
             beacon_rights_ <br />
             &lt;counter&gt;_enddate
           </td>
-          <td>Text</td>
+          <td>Texte</td>
           <td>
-            * Date when the asset should be no longer exposed under the access restrictions and monetization options in this particular set<br> * Format: Date yyyy-mm-dd hh:mm:ss<br> * Default value: If not set, defaults to video availability end date </td>
+            * Date à laquelle l'actif ne doit plus être exposé aux restrictions d'accès et aux options de monétisation de cet ensemble particulier<br> * Format: Date aaaa-mm-jj hh:mm:ss<br> * Valeur par défaut: Si cette option n'est pas définie, la date de fin de disponibilité de la vidéo </td>
         </tr>
         <tr>
-          <td>beacon.rights.&lt;counter&gt;.devices</td>
+          <td>beacon.droits.&lt;compteur &gt; .devices</td>
           <td>
             beacon_rights_ <br />
             &lt;counter&gt;_devices
           </td>
-          <td>Text</td>
+          <td>Texte</td>
           <td>
-            * Comma separated list of devices supported in Brightcove Beacon to which the asset should be exposed under the access restrictions and monetization options in this particular set<br> * Comma separated list of: <ul>
+            * Liste séparée par des virgules des périphériques pris en charge par Brightcove Beacon auxquels l'actif doit être exposé en vertu des restrictions d'accès et des options de monétisation de cet ensemble particulier<br> * Liste séparée par des virgules de: <ul>
               <li>iOS</li>
               <li>Android</li>
               <li>web</li>
@@ -106,148 +99,135 @@
               <li>androidtv</li>
               <!-- li>panasonic</li> -->
             </ul>
-            * Default value: If not set, defaults to all devices supported in Brightcove Beacon </td>
+            * Valeur par défaut: S'il n'est pas défini, tous les appareils pris en charge par défaut dans Brightcove Beacon </td>
         </tr>
         <tr>
           <td>
-            beacon.rights.<br />
-            &lt;counter&gt;.<br />
-            locationsPermit
+            beacon.droits.<br />
+            &lt;comptoir&gt;.<br />
+            Permis d'emplacement
           </td>
           <td>
             beacon_rights_ <br />
-            &lt;counter&gt;_<br />
-            locationspermit
+            &lt;comptoir&gt;_<br />
+            permis d'emplacement
           </td>
-          <td>Text</td>
+          <td>Texte</td>
           <td>
-            * Comma separated list of locations defined in Brightcove Beacon to which the asset should be exposed under the access restrictions and monetization options in this particular set<br> * Default value: If not set, defaults to all locations supported in Brightcove Beacon </td>
+            * Liste séparée par des virgules des emplacements définis dans Brightcove Beacon auxquels l'actif doit être exposé en vertu des restrictions d'accès et des options de monétisation de cet ensemble particulier<br> * Valeur par défaut: S'il n'est pas défini, tous les emplacements pris en charge par défaut dans Brightcove Beacon </td>
         </tr>
         <tr>
           <td>
-            beacon.rights.&lt;counter&gt;.<br /> locationsDeny </td>
+            beacon.droits.&lt;comptoir&gt;.<br /> Localisations Deny </td>
           <td>
             beacon_rights_ <br />
-            &lt;counter&gt;_<br />
-            locationsdeny
+            &lt;comptoir&gt;_<br />
+            emplacements refusés
           </td>
-          <td>Text</td>
+          <td>Texte</td>
           <td>
-            * Comma separated list of locations defined in Brightcove Beacon to which the asset should NOT be exposed under the access restrictions and monetization options in this particular set<br> * No default value </td>
+            * Liste séparée par des virgules des emplacements définis dans Brightcove Beacon auxquels l'actif ne doit PAS être exposé en vertu des restrictions d'accès et des options de monétisation de cet ensemble particulier<br> * Aucune valeur par défaut </td>
         </tr>
         <tr>
           <td>
-            beacon.rights.<br />
-            &lt;counter&gt;.<br />
-            packageName
+            beacon.droits.<br />
+            &lt;comptoir&gt;.<br />
+            Nom du package
           </td>
           <td>
             beacon_rights_ <br />
-            &lt;counter&gt;_<br />
-            packagename
+            &lt;comptoir&gt;_<br />
+            nom du package
           </td>
-          <td>Text</td>
+          <td>Texte</td>
           <td>
-            * A value for this field MUST be entered if the <strong>beacon.rights.&lt;counter&gt;.type</strong> field value is set to <strong>SVOD</strong><br> * A comma separated list of package names, as defined in Brightcove Beacon<br> * Examples: <em>Premium Sports, Action Movies, Earth Day Movies</em><br> * No default value </td>
+            * Une valeur pour ce champ DOIT être entrée si<strong> beacon.rights.&lt;La valeur du</strong> champ counter&gt; .type est définie sur<strong> SVOD</strong><br> * Une liste de noms de package séparés par des virgules, tels que définis dans Brightcove Beacon<br> * Exemples: <em>Premium Sports, Films d'action, Films du Jour de la Terre</em><br> * Aucune valeur par défaut </td>
         </tr>
         <tr>
           <td>
-            beacon.rights.<br />
-            &lt;counter&gt;.<br />
-            adConfiguration
+            beacon.droits.<br />
+            &lt;comptoir&gt;.<br />
+            Configuration de l'annonce
           </td>
           <td>
             beacon_rights_ <br />
-            &lt;counter&gt;_<br />
-            adconfiguration
+            &lt;comptoir&gt;_<br />
+            configuration des annonces
           </td>
-          <td>Text</td>
+          <td>Texte</td>
           <td>
-            * A value for this field MUST be entered if the <strong>beacon.rights.&lt;counter&gt;.type</strong> field value is set to <strong>AVOD</strong><br> * Identifier of an ad configuration in Brightcove Beacon<br> * No default value </td>
+            * Une valeur pour ce champ DOIT être entrée si<strong> beacon.rights.&lt;La valeur du</strong> champ counter&gt; .type est définie sur<strong> AVOD</strong><br> * Identifiant d'une configuration publicitaire dans Brightcove Beacon<br> * Aucune valeur par défaut </td>
         </tr>
       </tbody>
-    </table>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Creating_custom_fields">Creating custom fields</h2>
-    <p>To create custom fields, follow these steps.</p>
+    </table>  </section><section class="bcls-section">
+    <h2 id="Creating_custom_fields">Création de champs personnalisés</h2>
+    <p>Pour créer des champs personnalisés, procédez comme suit.</p>
     <ol class="bcls-tasklist">
-      <li>Log in to Beacon Studio.</li>
+      <li>Connectez-vous à Beacon Studio.</li>
       <li>
-        In the primary navigation, click <strong>ADMIN</strong> and then <strong>Video Fields</strong>. Note that you must be an account administrator to access the ADMIN menu.
+        Dans la navigation principale, cliquez sur<strong> ADMIN,</strong> puis sur Champs<strong> vidéo</strong>. Notez que vous devez être administrateur de compte pour accéder au menu ADMIN.
       </li>
       <li>
-        The Video Fields page will display your custom fields and all the standard video metadata fields, as shown in the following screenshot (in this case no custom fields have yet been created): <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/custom-fields-overview1.png" alt="" /> </figure>
+        La page Champs vidéo affichera vos champs personnalisés et tous les champs de métadonnées vidéo standard, comme indiqué dans la capture d'écran suivante (dans ce cas, aucun champ personnalisé n'a encore été créé): <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/custom-fields-overview1.png" alt="" /> </figure>
       </li>
       <li>
-        Click <strong>Add Custom Field</strong>.
-        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/new-custom-field1.png" alt="" /> </figure>
+        Cliquez sur<strong> Ajouter un champ personnalisé</strong>. <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/new-custom-field1.png" alt="" /> </figure>
       </li>
       <li>
-        For the <strong>Display Name</strong>, enter <samp>beacon.rights.0.adConfiguration</samp>. This is a commonly needed custom field for your first monetization implementation that needs custom fields. Note that this value will appear as the label for the field in the Media module. An <strong>Internal Name</strong> will automatically be created for the field based on the display name.
+        Pour le nom<strong> d'affichage</strong>, saisissez<samp> Beacon.Rights.0.adConfiguration</samp>. Il s'agit d'un champ personnalisé couramment utilisé pour votre première implémentation de monétisation qui nécessite des champs personnalisés. Notez que cette valeur apparaîtra comme étiquette du champ dans le module Médias. Un nom<strong> interne</strong> sera automatiquement créé pour le champ en fonction du nom complet.
       </li>
       <li>
-        For the <strong>Type</strong> select <strong>Text</strong>. Note the following for values for the possible types:
+        Pour le<strong> Type,</strong> sélectionnez<strong> Texte</strong>. Notez ce qui suit pour les valeurs des types possibles:
         <ul>
-          <li>
-            <strong>Text</strong> - The user can type anything into the field up to 1024 single-byte characters (or 512 double-byte characters).
+          <li> <strong>Texte</strong> - L'utilisateur peut saisir n'importe quoi dans le champ jusqu'à 1 024 caractères codés sur un octet (ou 512 caractères codés sur deux octets).
           </li>
-          <li>
-            <strong>List</strong> - The user will select from a list of values. Lists can have no more than 150 possible values and each value in the list can be no more than 100 characters long.
+          <li> <strong>Liste</strong>: l'utilisateur sélectionnera dans une liste de valeurs. Les listes ne peuvent pas comporter plus de 150 valeurs possibles et chaque valeur de la liste ne peut pas comporter plus de 100 caractères.
           </li>
         </ul>
       </li>
       <li>
-        Enter a <strong>Description</strong>. For this field a good description is <samp>A value for this field MUST be entered if the beacon.rights.&lt;counter&gt;.type field value is set to AVOD.</samp> The description field will appear as a hint in the Studio interface.
+        Saisissez une<strong> description</strong>. Pour ce champ, une bonne description est<samp> une valeur pour ce champ DOIT être entrée si beacon.rights.&lt;La valeur du champ counter&gt; .type est définie sur AVOD.</samp> Le champ de description apparaît comme un indice dans l'interface Studio.
       </li>
       <li>
-        DO NOT make this field required.
+        NE rendez PAS ce champ obligatoire.
       </li>
-      <li>Check to be sure your form appears as follows:
-        <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/new-custom-field-added.png" alt="" /> </figure>
+      <li>Vérifiez que votre formulaire s'affiche comme suit: <figure class="bcls-figure"> <img class="bcls-image" src="/assets/images/s-monetization-img/vc-custom-fields/new-custom-field-added.png" alt="" /> </figure>
       </li>
       <li>
-        Click <strong>Save Field</strong> to save the changes. Click <strong>Save and Add Another</strong> to save the field and begin creating another field.
+        Cliquez sur<strong> Enregistrer le champ</strong> pour enregistrer les modifications. Cliquez sur<strong> Enregistrer et en ajouter un autre</strong> pour enregistrer le champ et commencer à en créer un autre.
       </li>
     </ol>
     <p>
-      Custom fields you create are available immediately and will be visible in the Media module.
+      Les champs personnalisés que vous créez sont disponibles immédiatement et seront visibles dans le module Médias.
     </p>
     <p>
-      Up to 10 custom fields can be created. If you need more than 10 fields, click the <strong>Need more fields?</strong> link in the Video Fields page to contact Brightcove Customer Support with a request for more. Publishers are limited to 50 custom fields.
-    </p>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Custom_field_implementation_details">Custom field implementation details</h2>
-    <h3>Custom field names</h3>
+      Il est possible de créer jusqu'à 10 champs personnalisés. Si vous avez besoin de plus de 10 champs, cliquez sur le lien Vous<strong> avez besoin de plus de champs&nbsp;? </strong>dans la page Video Fields (Champs vidéo) pour contacter le support client de Brightcove pour toute demande d'informations supplémentaires. Les éditeurs sont limités à 50 champs personnalisés.
+    </p>  </section><section class="bcls-section">
+    <h2 id="Custom_field_implementation_details">Détails de l'implémentation des champs personnalisés</h2>
+    <h3>Noms de champs personnalisés</h3>
     <p>
-      The next three sections of this document cover custom fields that you may need to create based on your particular implementation use case. Each custom field has both a <strong>Display Name</strong> and an <strong>Internal Name</strong>. If you feel you have a more meaningful name for the <strong>Display Name</strong> option you can use that, but the <strong>Internal Name</strong> MUST match exactly.
+      Les trois sections suivantes de ce document couvrent les champs personnalisés que vous pouvez avoir besoin de créer en fonction de votre cas d'utilisation d'implémentation particulier. Chaque champ personnalisé possède à la fois<strong> un nom</strong> complet et un nom<strong> interne</strong>. Si vous pensez que vous avez un nom plus significatif pour l'<strong>option Nom</strong> affiché, vous pouvez l'utiliser, mais le nom<strong> interne</strong> DOIT correspondre exactement.
     </p>
 
-    <h3>Using list values for Brightcove Beacon metadata </h3>
+    <h3>Utilisation des valeurs de liste pour les métadonnées Brightcove Beacon </h3>
     <p>
-      In the table of values for the rights management custom fields show above, you may wish to consider the <strong>beacon.rights.&lt;counter&gt;.type</strong> to be of type <strong>List</strong>. Note that ALL the <strong>Types</strong> are <strong>Text</strong>. It may ease the burden on monetization implementors if they can select from a list rather than having to enter text. Also, it will invariably help to keep data entry more consistent if values can be selected from a list rather than typed in. Therefore, if you find a <strong>List</strong> works in some business cases, a list can be used.
+      Dans le tableau de valeurs des champs personnalisés de gestion des droits ci-dessus, vous pouvez envisager<strong> beacon.rights.&lt;counter&gt; .type</strong> pour être de type<strong> List</strong>. Notez que TOUS les<strong> types</strong> sont<strong> textuels</strong>. Cela peut alléger le fardeau des implémenteurs de monétisation s'ils peuvent sélectionner dans une liste plutôt que d'avoir à saisir du texte. En outre, il sera toujours utile de maintenir la cohérence de la saisie des données si les valeurs peuvent être sélectionnées dans une liste plutôt que saisies. Par conséquent, si vous trouvez qu'une<strong> liste</strong> fonctionne dans certaines analyses de rentabilisation, une liste peut être utilisée.
     </p>
 
-    <h3 id="edit">Editing list values</h3>
+    <h3 id="edit">Modification des valeurs de liste</h3>
     <p>
-      You can add additional values to a List type custom field. Click the custom field name link, add the values and then click <strong>Add to List</strong>. When done, click <strong>Save Field</strong>.
+      Vous pouvez ajouter des valeurs supplémentaires à un champ personnalisé de type Liste. Cliquez sur le lien du nom du champ personnalisé, ajoutez les valeurs, puis cliquez sur<strong> Ajouter à la liste</strong>. Lorsque vous avez terminé, cliquez sur<strong> Enregistrer le champ</strong>.
     </p>
 
-    <h3 id="delete">Deleting list values</h3>
+    <h3 id="delete">Supprimer des valeurs de liste</h3>
     <p>
-      You can add remove existing values from a List type custom field. Click the custom field name link, click the delete icon associated with the value and then click <strong>Save Field</strong>.
+      Vous pouvez ajouter supprimer des valeurs existantes d'un champ personnalisé de type Liste. Cliquez sur le lien du nom du champ personnalisé, cliquez sur l'icône de suppression associée à la valeur, puis cliquez sur<strong> Enregistrer le champ</strong>.
     </p>
     <p>
-      When a list value is removed, any videos that were previously assigned that value will keep the value. However, if a video with the deleted value is edited, the value will be cleared and a new value will have to be selected.
+      Lorsqu'une valeur de liste est supprimée, toutes les vidéos auxquelles cette valeur a été précédemment attribuée la conservent. Toutefois, si une vidéo avec la valeur supprimée est éditée, la valeur sera effacée et une nouvelle valeur devra être sélectionnée.
     </p>
 
-    <h3 id="remove">Removing custom fields from an account</h3>
+    <h3 id="remove">Suppression des champs personnalisés d'un compte</h3>
     <p>
-      In order to remove a custom field from your account, you must <a href="https://supportportal.brightcove.com/s/login/"> contact Brightcove Support</a>. Note that if you have Brightcove Support delete custom fields, the modified date will change for any videos where a value was present.
-    </p>
-  </section>
-
-</article>
+      Pour supprimer un champ personnalisé de votre compte, vous devez<a href="https://supportportal.brightcove.com/s/login/"> contacter le support Brightcove</a>. Notez que si le support Brightcove supprime des champs personnalisés, la date de modification changera pour toutes les vidéos pour lesquelles une valeur était présente.
+    </p>  </section></article>

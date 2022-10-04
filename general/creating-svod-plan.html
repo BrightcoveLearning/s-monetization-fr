@@ -1,209 +1,151 @@
-<h1>{{ page.title }}</h1>
-<article class="bcls-article">
-  <summary>{{ page.description }}</summary>
-
-  <section class="bcls-section">
-    <h2 id="Overview">Overview</h2>
+<h1>{{page.title}}</h1> <article class="bcls-article"> <summary>{{page.description}}</summary> <section class="bcls-section">
+    <h2 id="Overview">Aperçu</h2>
     <p>
-      An SVOD plan defines how a particular set of videos can be purchased by your apps' customers. When creating the package you can, for example, configure the following:
+      Un plan de SVOD définit comment les clients de vos applications peuvent acheter un ensemble particulier de vidéos. Lors de la création du package, vous pouvez, par exemple, configurer les éléments suivants:
     </p>
     <ul>
-      <li>The billing frequency</li>
-      <li>Set if ad supported, and the advertising configuration to use</li>
-      <li>Payment methods</li>
-      <li>Maximum number of streams that can be played simultaneously by a user with the package</li>
-      <li>Start and end dates when the package can be purchased</li>
-      <li>Permitted devices and geo-locations to view videos in the package</li>
+      <li>La fréquence de facturation</li>
+      <li>Définissez si la publicité est prise en charge et la configuration publicitaire à utiliser</li>
+      <li>Modes de paiement</li>
+      <li>Nombre maximal de flux pouvant être lus simultanément par un utilisateur avec le package</li>
+      <li>Dates de début et de fin auxquelles le forfait peut être acheté</li>
+      <li>Appareils autorisés et géolocalisations pour visionner les vidéos du package</li>
     </ul>
-    {% if site.product_short == "Beacon" or site.product_short == "CorpTV" %}
-    <aside class="bcls-aside bcls-aside--warning language-editable">If prices are changed anywhere in Beacon, you must <a href="/layout/clearing-cache.html">clear the app cache</a> to be sure prices are consistent in all parts of the Beacon app.</aside>
-    {% elsif site.product_short == "Beacon Classic" %}
-    <aside class="bcls-aside bcls-aside--warning language-editable">If prices are changed anywhere in Beacon, you must <a href="/using-brightcove-beacon/tools.html#Cache">clear the app cache</a> to be sure prices are consistent in all parts of the Beacon app.</aside>
-    {% endif %}
-  </section>
-  <section class="bcls-section">
-    <h2 id="Steps to create a package">Steps to create a package</h2>
-    <p>Step through the following steps to create a new package:</p>
+    {% if site.product_short == Beacon-fr/ or site.product_short == CorpTV-fr/ %}<aside class="bcls-aside bcls-aside--warning language-editable"> Si les prix changent n'importe où dans Beacon, vous devez<a href="/layout/clearing-cache.html"> vider le cache de l'application</a> pour vous assurer que les prix sont cohérents dans toutes les parties de l'application Beacon. </aside>{% elsif site.product_short == Beacon Classic-fr/ %}<aside class="bcls-aside bcls-aside--warning language-editable"> Si les prix changent n'importe où dans Beacon, vous devez<a href="/using-brightcove-beacon/tools.html#Cache"> vider le cache de l'application</a> pour vous assurer que les prix sont cohérents dans toutes les parties de l'application Beacon. </aside>{% endif %} </section> <section class="bcls-section">
+    <h2 id="Steps to create a package">Étapes pour créer un package</h2>
+    <p>Suivez les étapes suivantes pour créer un nouveau package:</p>
     <ol class="bcls-tasklist">
       <li>
-        In Brightcove Beacon, select the <strong>Commerce</strong> tab, be sure <strong>SVOD/AuthVOD Plans</strong> is selected in the left navigation, then click <strong>Add New Package</strong> .
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/initial-menu-selections.png" alt="initial menu selections" />
-        </figure>
+        Dans Brightcove Beacon, sélectionnez l'<strong>onglet</strong> Commerce, assurez-vous que<strong> SVOD/AuthVOD Plans</strong> est sélectionné dans le volet de navigation de gauche, puis cliquez sur<strong> Ajouter un nouveau package</strong>. <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/initial-menu-selections.png" alt="sélections initiales du menu" /> </figure>
       </li>
       <li>
-        On the <strong>Package</strong> tab (screenshot below), complete the following:
+        Dans l'<strong>onglet</strong> Package (capture d'écran ci-dessous), procédez comme suit:
         <ul>
-          <li>
-            <strong>Name</strong> : The name of the package that is used in the Video Cloud custom fields for a video.
+          <li> <strong>Nom</strong>: Nom du package utilisé dans les champs personnalisés Video Cloud pour une vidéo.
           </li>
-          <li>
-            <strong>Billing Frequency</strong> : Choose the billing frequency for this package.
+          <li> <strong>Fréquence de facturation</strong>: Choisissez la fréquence de facturation de ce forfait.
           </li>
-          <li>
-            <strong>Trial Period</strong> : The trial period for this package.
-            Enter <strong>0</strong> for no trial period.
+          <li> <strong>Période d'essai</strong>: La période d'essai de ce package. Saisissez<strong> 0</strong> pour aucune période d'essai.
           </li>
-          <li>
-            <strong>Status</strong> : Chose if you wish to have the package published so it is available for use. Note that you will not be able to publish the package until at least one payment method is selected.
+          <li> <strong>Statut</strong>: Choisissez si vous souhaitez que le package soit publié afin qu'il soit disponible. Notez que vous ne pourrez pas publier le package tant qu'au moins un mode de paiement n'aura pas été sélectionné.
           </li>
-          <li>
-            <strong>Advertisement</strong> : Choose if you wish to use advertisements with this package.
+          <li> <strong>Publicité</strong>: Choisissez si vous souhaitez utiliser des publicités avec ce package.
           </li>
-          <li>
-            <strong>Ads Providers</strong> : If you have chosen to use ads in the previous step, choose the ad provider. This dropdown is populated with the advertisement configurations listed in the <strong>Advertisement</strong> section of Brightcove Beacon.
+          <li> <strong>Fournisseurs de publicités</strong>: Si vous avez choisi d'utiliser des publicités à l'étape précédente, choisissez le fournisseur de publicités. Cette liste déroulante contient les configurations de publication répertoriées dans la<strong> section</strong> Publicité de Brightcove Beacon.
             <!-- See the <a href="/using-brightcove-beacon/advertisement.html"> Advertisement </a> document for details on advertisement configurations. -->
           </li>
-          <li>
-            <strong>Payment methods to use</strong> : Select the payment methods you want to use with this package. Note that for each method selected a section will open below the list of payment methods, which you must complete for each selected method. The screenshot below shows <strong>Stripe (in yellow)</strong> and <strong>Apple Store (in red)</strong> are selected.
-            <figure class="bcls-figure">
-              <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/payment-method-details.png" alt="payment method details" />
-            </figure>
+          <li> <strong>Modes de paiement à utiliser</strong>: Sélectionnez les modes de paiement que vous souhaitez utiliser avec ce package. Notez que pour chaque méthode sélectionnée, une section s'ouvrira sous la liste des modes de paiement, que vous devez remplir pour chaque mode sélectionné. La capture d'écran ci-dessous montre que<strong> Stripe (en jaune)</strong> et<strong> Apple Store (en rouge)</strong> sont sélectionnés. <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/payment-method-details.png" alt="détails du mode de paiement" /> </figure>
           </li>
         </ul>
       </li>
       <li>
-        Click the <strong>Create Package</strong> button to save your current package configuration.
+        Cliquez sur le<strong> bouton</strong> Créer un package pour enregistrer la configuration actuelle de votre package.
       </li>
       <li>
-        On the <strong>Textual Data</strong> tab, complete the following: <ul>
-          <li><strong>Pack Name</strong> : Name shown to users.</li>
-          <li>
-            <strong>Headline</strong> : Headline shown to users, for example <em>Holiday Special!</em> .
+        Dans l'<strong>onglet Données</strong> textuelles, procédez comme suit: <ul>
+          <li><strong>Nom du pack</strong>: Nom affiché aux utilisateurs.</li>
+          <li> <strong>Titre</strong>: Titre affiché aux utilisateurs, par exemple<em> Holiday Special&nbsp;! </em>.
           </li>
         </ul>
       </li>
       <li>
-        Click the <strong>Create Package</strong> button to save your current package configuration.
+        Cliquez sur le<strong> bouton</strong> Créer un package pour enregistrer la configuration actuelle de votre package.
       </li>
       <li>
-        On the <strong>Non-Textual Data</strong> tab, supply an image for use next to the package name.
+        Dans l'<strong>onglet Données</strong> non textuelles, indiquez une image à utiliser en regard du nom du package.
         <!-- The size of the image should be !!!!!!!!!!!!!!!!. -->
       </li>
       <li>
-        Click the <strong>Create Package</strong> button to save your current package configuration.
+        Cliquez sur le<strong> bouton</strong> Créer un package pour enregistrer la configuration actuelle de votre package.
       </li>
       <li>
-        The <strong>Content</strong> tab is not for use at the current time.
+        L'<strong>onglet</strong> Contenu n'est pas destiné à être utilisé pour le moment.
       </li>
       <li>
-        On the <strong>Streams</strong> tab, complete the following: <ul>
-          <li>
-            <strong>Max Streams</strong> : Maximum number of connected devices that can be streaming at the same time.
+        Dans l'<strong>onglet</strong> Streams, procédez comme suit: <ul>
+          <li> <strong>Flux maximum</strong>: Nombre maximal d'appareils connectés pouvant être diffusés en continu en même temps.
           </li>
-          <li>
-            <strong>Max Devices</strong> : Maximum number of connected devices that can have active connections.
-            <aside class="bcls-aside bcls-aside--information"> The two settings above are also set globally, so use these settings ONLY IF you wish to override the global settings in this package.
-            </aside>
+          <li> <strong>Nombre maximum d'appareils</strong>: Nombre maximal d'appareils connectés pouvant avoir des connexions actives. <aside class="bcls-aside bcls-aside--information"> Les deux paramètres ci-dessus sont également définis globalement, donc utilisez ces paramètres UNIQUEMENT SI vous souhaitez remplacer les paramètres globaux de ce package. </aside>
           </li>
-          <li>
-            <strong>Advanced Streams</strong> : Set this to <strong>Yes</strong> if you wish to customize the rights this package sets. The available changes are shown in the following screenshot:
-            <figure class="bcls-figure">
-              <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/advanced-stream-rights.png" alt="advanced stream rights" />
-            </figure>
+          <li> <strong>Streams avancés</strong>: Définissez cette<strong> option sur Oui</strong> si vous souhaitez personnaliser les droits définis par ce package. Les modifications disponibles sont illustrées dans la capture d'écran suivante: <figure class="bcls-figure">
+              <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/advanced-stream-rights.png" alt="droits de diffusion avancés" /> </figure>
           </li>
         </ul>
       </li>
       <li>
-        Click the <strong>Add new Right</strong> button to save your newly configured, customized rights.
+        Cliquez sur le<strong> bouton</strong> Ajouter un nouveau droit pour enregistrer vos droits personnalisés nouvellement configurés.
       </li>
       <li>
-        Click the <strong>Create Package</strong> button to save your current package configuration.
+        Cliquez sur le<strong> bouton</strong> Créer un package pour enregistrer la configuration actuelle de votre package.
       </li>
     </ol>
-    <p>That's it for the package creation!</p>
-  </section>
-  <!-- <section class="bcls-section"> <h2 id="Using_the_package_in_Video_Cloud"> Using the package in Video Cloud </h2> <p> Although the package is created in Brightcove Beacon, it is not applied to content in there. To use the package, and apply it to video content you use Video Cloud custom fields. </p> </section> -->
-
-  <section class="bcls-section">
-    <h2 id="Unpublishing">Unpublishing or deleting a package</h2>
-    <p>If a package is no longer needed you have two options:</p>
+    <p>C'est tout pour la création du package&nbsp;!</p> </section>
+  <!-- <section class="bcls-section"> <h2 id="Using_the_package_in_Video_Cloud"> Using the package in Video Cloud </h2> <p> Although the package is created in Brightcove Beacon, it is not applied to content in there. To use the package, and apply it to video content you use Video Cloud custom fields. </p> </section> --> <section class="bcls-section">
+    <h2 id="Unpublishing">Annulation de la publication ou suppression d'un package</h2>
+    <p>Si vous n'avez plus besoin d'un package, deux options s'offrent à vous:</p>
     <ul>
-      <li><strong>Unpublish</strong>: You can unpublish a package that will be needed again. For instance, you have a special package associated with a holiday that you will use year after year. This is a good use case for unpublish.</li>
-      <li><strong>Delete</strong>: You can delete a package and it is not recoverable. For instance, you have an introductory package for a new set of content, but that content will not be new again, so you will not need the package again. This is a good use case for delete.</li>
+      <li><strong>Dépublier</strong>: Vous pouvez annuler la publication d'un package dont vous aurez de nouveau besoin. Par exemple, vous avez un forfait spécial associé à un jour férié que vous utiliserez année après année. Il s'agit d'un bon cas d'utilisation pour annuler la publication.</li>
+      <li><strong>Supprimer</strong>: Vous pouvez supprimer un package qui n'est pas récupérable. Par exemple, vous disposez d'un package d'introduction pour un nouvel ensemble de contenu, mais ce contenu ne sera plus nouveau nouveau, vous n'aurez donc plus besoin du package. Il s'agit d'un bon cas d'utilisation pour supprimer.</li>
     </ul>
-    <p>There are two places you can unpublish/delete a package:</p>
+    <p>Il existe deux endroits où vous pouvez annuler la publication/suppression d'un package:</p>
     <ul>
-      <li>From the <strong>SVOD/AuthVOD Plans</strong> section check the package(s) you wish to unpublish/delete then click the appropriate button.<figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-authvod/unpublish-delete.png" alt="unpublish delete">
-        </figure>
+      <li>Dans la<strong> section</strong> SVOD/AuthVOD Plans, cochez le (s) package (s) que vous souhaitez dépublier/supprimer, puis cliquez sur le bouton approprié.<figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-authvod/unpublish-delete.png" alt="annuler la publication supprimer"> </figure>
       </li>
-      <li>If you are editing the package, from the <strong>Package</strong> tab you can both unpublish and delete. Use the <strong>Status</strong> to unpublish or the <strong>Delete</strong> button to delete.
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-authvod/unpublish-delete-edit.png" alt="unpublish delete when editing">
-        </figure>
+      <li>Si vous modifiez le package, vous pouvez annuler la publication et le supprimer à partir de l'<strong>onglet</strong> Package. Utilisez le<strong> statut</strong> pour annuler la publication ou le<strong> bouton</strong> Supprimer pour supprimer. <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-authvod/unpublish-delete-edit.png" alt="annuler la publication supprimer lors de la modification"> </figure>
       </li>
-    </ul>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Creating_a_Stripe_Coupon">Creating a Stripe Coupon</h2>
+    </ul>  </section><section class="bcls-section">
+    <h2 id="Creating_a_Stripe_Coupon">Création d'un coupon Stripe</h2>
     <p>
-      Coupons can be created to provide a discount, either a fixed monetary discount or a percentage discount, that can be applied when purchasing a package.
+      Les coupons peuvent être créés pour fournir une réduction, soit une remise monétaire fixe, soit une réduction en pourcentage, qui peut être appliquée lors de l'achat d'un forfait.
     </p>
     <ol class="bcls-tasklist-restart">
       <li>
-        In Brightcove Beacon, select the <strong>Commerce</strong> tab, then click <strong>Coupons by Stripe</strong> and finally click <strong>Add New Voucher</strong>.
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/coupon-menu-selection.png" alt="coupon menu selections" />
-        </figure>
+        Dans Brightcove Beacon, sélectionnez l'<strong>onglet</strong> Commerce, puis cliquez sur<strong> Coupons par Stripe</strong> et enfin cliquez sur<strong> Ajouter un nouveau bon</strong>. <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/coupon-menu-selection.png" alt="sélections du menu des coupons" /> </figure>
       </li>
       <li>
-        On the <strong>Create New Coupons</strong> form (screenshot below), complete the following:
+        Dans le<strong> formulaire</strong> Créer de nouveaux coupons (capture d'écran ci-dessous), procédez comme suit:
         <ul>
-          <li>
-            <strong>Id</strong> : Code that viewers will enter in the Brightcove Beacon app to use the coupon
+          <li> <strong>Id</strong>: Code que les utilisateurs saisiront dans l'application Brightcove Beacon pour utiliser le coupon
           </li>
-          <li><strong>Name</strong> : A friendly name for the coupon that can be displayed in invoices</li>
-          <li>
-            <strong>Duration</strong> : Choose from <strong>Once</strong>, <strong>Forever</strong> or <strong>Repeating</strong>;<br /> If <strong>Repeating</strong> is selected, then set the number of months it can repeatedly be used.
+          <li><strong>Nom</strong>: Un nom convivial pour le coupon qui peut être affiché sur les factures</li>
+          <li> <strong>Durée</strong>: Choisissez entre<strong> Once</strong>,<strong> Forever</strong> ou<strong> Repeating</strong>&nbsp;;<br /> Si l'option<strong> Répétition</strong> est sélectionnée, définissez le nombre de mois pendant lesquels il peut être utilisé de manière répétée.
           </li>
           <li>
-            For
-            <strong>Discount type</strong>
-            select one of the following:
+            Pour Type de<strong> réduction,</strong> sélectionnez l'une des options suivantes:
             <ul>
-              <li>
-                <strong>Monetary Amount</strong>: Enter the value of, and currency for, the coupon
+              <li> <strong>Montant monétaire</strong>: Entrez la valeur et la devise du coupon
               </li>
-              <li>
-                <strong>Percentage</strong>: Enter the percentage of discount the coupon will carry
+              <li> <strong>Pourcentage</strong>: Entrez le pourcentage de réduction que le coupon portera
               </li>
             </ul>
             <p>
-              Example: If the discount is 3 months free, then set the <strong>Duration</strong> to <strong>Repeating</strong> with 3 months and set the <strong>Discount type</strong> with <strong>Percentage</strong> of 100% </p>
+              Exemple: Si la réduction est gratuite pendant 3 mois, définissez la<strong> durée</strong> sur<strong> Répétition</strong> avec 3 mois et définissez le type de<strong> réduction</strong> avec<strong> Pourcentage</strong> de 100&nbsp;% </p>
           </li>
-          <li>
-            <strong>Limit Date (UTC)</strong> : Select the last date the coupon can be used
+          <li> <strong>Date limite (UTC)</strong>: Sélectionnez la dernière date à laquelle le coupon peut être utilisé
           </li>
-          <li>
-            <strong>Max redemption</strong> : Enter the maximum number of redemptions for the coupon; for instance only 50 customers can redeem the coupon
+          <li> <strong>Remboursement maximum</strong>: Entrez le nombre maximum d'utilisations pour le coupon&nbsp;; par exemple, seuls 50 clients peuvent utiliser le coupon
           </li>
-          <li>
-            <strong>Select Packages</strong> : Select the packages to which the coupon can be applied; if you do not select a package the coupon can be applied to all packages<br />
-            Example: The coupon is only valid if you purchase the yearly subscription
+          <li> <strong>Sélectionnez les forfaits</strong>: Sélectionnez les packages auxquels le coupon peut être appliqué&nbsp;; si vous ne sélectionnez pas de package, le coupon peut être appliqué à tous les packages<br />
+            Exemple: Le coupon n'est valable que si vous achetez l'abonnement annuel
           </li>
-        </ul>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/new-coupon-form.png" alt="coupon form" />
-        </figure>
+        </ul> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/new-coupon-form.png" alt="formulaire de coupon" /> </figure>
       </li>
       <li>
         <p>
-          Be sure to click the <strong>Save</strong> button to save your new coupon.
+          N'oubliez pas de cliquer sur le<strong> bouton</strong> Enregistrer pour enregistrer votre nouveau coupon.
         </p>
       </li>
     </ol>
     <p>
-      In the Brightcove Beacon app when a package purchase takes place, viewers will be able to enter the coupon <strong>Id</strong>: </p>
-    <figure class="bcls-figure">
-      <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/use-coupon.png" alt="use coupon form" />
-    </figure>
+      Dans l'application Brightcove Beacon, lors de l'achat d'un package, les spectateurs pourront saisir l'<strong>ID du coupon</strong>: </p> <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/use-coupon.png" alt="utiliser le formulaire de coupon" /> </figure>
     <p>
-      Alternatively, you can create coupons directly in your Stripe account, and then use them in Brightcove Beacon.
-    </p>
-    <figure class="bcls-figure">
-      <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/stripe-coupon-form.png" alt="use coupon form" />
-    </figure>
-  </section>
-</article>
+      Vous pouvez également créer des coupons directement dans votre compte Stripe, puis les utiliser dans Brightcove Beacon.
+    </p> <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/s-monetization-img/creating-subscription-package/stripe-coupon-form.png" alt="utiliser le formulaire de coupon" />   </figure></section></article>

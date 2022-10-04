@@ -1,143 +1,112 @@
-<h1>{{ page.title }}</h1>
-<article class="bcls-article">
-  <summary>{{ page.description }}</summary>
-  <section class="bcls-section">
+<h1>{{page.title}}</h1> <article class="bcls-article"> <summary>{{page.description}}</summary> <section class="bcls-section">
     <p>
-      Ad configurations define various aspects of ad playback, including ad calls, timing, beacons and other ad configuration options. The Server-Side Ad Settings define the ads that can be requested during video on demand (VOD) videos and during live events. Server-side ads take advantage of Brightcove's Server-Side Ad Insertion (SSAI) technology and provide these main features:</p>
+      Les configurations publicitaires définissent divers aspects de la lecteur des publicités, notamment les appels publicitaires, le timing, les balises et d'autres options de configuration des publicités. Les paramètres des publicités côté serveur définissent les publicités qui peuvent être demandées pendant les vidéos vidéo à la demande (VOD) et pendant les événements en direct. Les publicités côté serveur tirent parti de la technologie SSAI (Server-Side Ad Insertion) de Brightcove et offrent les principales fonctionnalités suivantes:</p>
     <ul>
       <li>
-        Since ads are stitched into the on-demand or live video stream on the server side, they are not affected by ad blockers </li>
+        Étant donné que les publicités sont intégrées au flux vidéo à la demande ou en direct côté serveur, elles ne sont pas affectées par les bloqueurs de publicités </li>
       <li>
-        For live events, ads are inserted at cue points sent from your encoder or you can create an instant cue point using the <a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html#ad">Live module Control Room</a>
+        Pour les événements en direct, les publicités sont insérées aux points de repère envoyés par votre encodeur ou vous pouvez créer un point de repère instantané à l'aide du module<a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html#ad"> Live Control Room.</a>
       </li>
-      <li>You can configure fill slates to fill any unused ad time</li>
+      <li>Vous pouvez configurer des ardoises de remplissage pour remplir tout temps publicitaire non utilisé</li>
     </ul>
     <p>
-      To learn more about server-side advertising, see <a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html">Implementing Server-Side Ads with the Brightcove Player</a>.
-    </p>
-    <aside class="bcls-aside bcls-aside--information"> Note:
+      Pour en savoir plus sur la publicité côté serveur, consultez<a href="https://player.support.brightcove.com/plugins/implementing-server-side-ads-brightcove-player.html"> Mise en œuvre des publicités côté serveur avec le lecteur Brightcove</a>.
+    </p> <aside class="bcls-aside bcls-aside--information"> Remarque:
       <ul>
         <li>
-          Before you can use SSAI, your Video Cloud account needs to be configured for Dynamic Delivery and enabled for SSAI. Contact your account manager for details.
+          Avant de pouvoir utiliser SSAI, votre compte Video Cloud doit être configuré pour Dynamic Delivery et activé pour SSAI. Contactez votre responsable de compte pour plus de détails.
         </li>
-        <li>VMAP for Brightcove Live SSAI is not currently supported.</li>
-        <li>Although there is no prefetch functionality for SSAI ads, we delegate the ad position logic to the ad provider. Dynamic Delivery makes all the add calls up front. If we get an ad from the ad provider and it is transcoded in our system we will insert it into the stream.</li>
-      </ul>
-    </aside>
+        <li>VMAP for Brightcove Live SSAI n'est actuellement pas pris en charge.</li>
+        <li>Bien qu'il n'y ait pas de fonctionnalité de prélecteur pour les publicités SSAI, nous déléguons la logique de position de l'annonce au fournisseur d'annonces. La livraison dynamique effectue tous les appels supplémentaires à l'avance. Si nous recevons une annonce du fournisseur de publicité et qu'elle est transcodée dans notre système, nous l'insérons dans le flux.</li>
+      </ul> </aside>
     <p>
-      The Server-Side Ad Settings page is used to manage the Live and VOD ad configurations. Note that to access the Server-Side Ad Settings page, you must be a user with the Administrator role.
+      La page Paramètres des publicités côté serveur est utilisée pour gérer les configurations des annonces en direct et VOD. Notez que pour accéder à la page Paramètres des publicités côté serveur, vous devez être un utilisateur ayant le rôle d'administrateur.
     </p>
-    <p>To access the Server-Side Ad Settings page:</p>
+    <p>Pour accéder à la page Paramètres des publicités côté serveur:</p>
     <ol class="bcls-tasklist-restart">
-      <li>Log in to Studio.</li>
+      <li>Connectez-vous à Studio.</li>
       <li>
-        From the primary navigation, click <strong>ADMIN</strong> and then<strong> Server-Side Ad Settings</strong>.A list of all ad configurations will be displayed.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="https://general.support.brightcove.com/assets/images/admin/node18748-list-of-ad-configs.png" />
-        </figure>
+        Dans la navigation principale, cliquez sur<strong> ADMIN,</strong> puis sur Paramètres des publicités<strong> côté serveur</strong>. Une liste de toutes les configurations d'annonces s'affiche. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="https://general.support.brightcove.com/assets/images/admin/node18748-list-of-ad-configs.png" /> </figure>
       </li>
     </ol>
     <p>
-      To create a new ad configuration, click
-      <strong>Create Ad Configuration</strong> and then click the specific type of ad to create:
+      Pour créer une nouvelle configuration publicitaire, cliquez sur<strong> Créer une configuration publicitaire,</strong> puis sur le type d'annonce spécifique à créer:
     </p>
     <ul>
-      <li><a href="#vod">Video on Demand (VOD)</a></li>
-      <li><a href="#live">Live</a></li>
-    </ul>
-    <figure class="bcls-figure">
-      <img class="bcls-image--no-border" alt="" src="https://general.support.brightcove.com/assets/images/admin/node18748-create-ad.png" />
-    </figure>
-  </section>
-  <section class="bcls-section">
-    <h2 id="vod">Creating a Video On Demand ad configuration</h2>
-    <aside class="bcls-aside bcls-aside--information"> Note: Server-side ad configurations can also be managed using the Server-Side Ad Insertion API. For information, see the <a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html">Video Cloud SSAI Ad Config API</a>
-      topic.
-    </aside>
-    <p>To add a Video On Demand (VOD) ad configuration, follow these steps.</p>
+      <li><a href="#vod">Vidéo à la demande (VOD)</a></li>
+      <li><a href="#live">En direct</a></li>
+    </ul>     <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="https://general.support.brightcove.com/assets/images/admin/node18748-create-ad.png" /></figure></section><section class="bcls-section">
+    <h2 id="vod">Création d'une configuration publicitaire Video On Demand</h2> <aside class="bcls-aside bcls-aside--information"> Remarque: Les configurations publicitaires côté serveur peuvent également être gérées à l'aide de l'API d'insertion de publicités côté serveur. Pour plus d'informations, consultez la<a href="https://ssai.support.brightcove.com/vod/guides/video-cloud-ssai-ad-config-api.html"> rubrique API Ad Config de</a> Video Cloud SSAI. </aside>
+    <p>Pour ajouter une configuration d'annonce vidéo à la demande (VOD), procédez comme suit.</p>
     <ol class="bcls-tasklist-restart">
       <li>
-        On the Server-Side Ad Settings page, click <strong>Create Ad Configuration &gt; VOD</strong>.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="https://general.support.brightcove.com/assets/images/admin/node18748-create-vod-ad.png" />
-        </figure>
+        Sur la page Paramètres des publicités côté serveur, cliquez sur<strong> Créer une configuration publicitaire &gt; VOD</strong>. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="https://general.support.brightcove.com/assets/images/admin/node18748-create-vod-ad.png" /> </figure>
       </li>
-      <li>Enter a <strong>Name</strong>.</li>
+      <li>Saisissez un<strong> nom</strong>.</li>
       <li>
-        Select the <strong>Ad Server Response</strong>: <ul>
-          <li>DFP Ad Rules</li>
-          <li>DFP VMAP</li>
-          <li>Smart XML</li>
-          <li>VAST 3.0</li>
+        Sélectionnez la réponse du serveur<strong> publicitaire</strong>: <ul>
+          <li>Règles publicitaires DFP</li>
+          <li>VMAP</li>
+          <li>XML intelligent</li>
+          <li>VASTE 3.0</li>
         </ul>
       </li>
-      <li>Enter the<strong> Ad Tag</strong>.</li>
+      <li>Saisissez l'<strong>Ad Tag</strong>.</li>
       <li>
-        Check <strong>Disable server-side beacons</strong> to disable server-side beacons. When disabled, SSAI will not fire any beacons server-side and will include all beacons in the VMAP output.
+        Cochez la case<strong> Désactiver les balises côté serveur</strong> pour désactiver les balises côté serveur. Lorsque cette option est désactivée, SSAI ne déclenche aucune balise côté serveur et inclut toutes les balises dans la sortie VMAP.
       </li>
-      <li>Click <strong>Save</strong>.</li>
+      <li>Cliquez sur<strong> Enregistrer</strong>.</li>
     </ol>
     <p>
-      To edit an ad configuration, click the ad name, make the changes and then click <strong>Save</strong>. To delete an ad config, check the box next to the ad and then click <strong>Delete</strong>. To duplicate an ad config, check the box next to the ad and then click <strong>Duplicate</strong>.
+      Pour modifier la configuration d'une annonce, cliquez sur le nom de l'annonce, apportez les modifications, puis cliquez sur<strong> Enregistrer</strong>. Pour supprimer une configuration d'annonce, cochez la case en regard de l'annonce, puis cliquez sur<strong> Supprimer</strong>. Pour dupliquer une configuration d'annonce, cochez la case en regard de l'annonce, puis cliquez sur<strong> Dupliquer</strong>.
     </p>
     <p>
-      Once VOD ad configurations have been created, open the Players module and click on a player to view the properties. When the <strong>Enable Server-Side (SSAI)</strong> advertising property is enabled, an ad configuration can be selected. For information on configuring player advertising, see
-      <a href="https://studio.support.brightcove.com/players/configuring-player-advertising-using-players-module.html">Configuring Player Advertising using the Players Module (external link)</a>.
-    </p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="live">Creating a Live ad configuration</h2>
-    <aside class="bcls-aside bcls-aside--information"> Note: Server-side Live ad configurations can also be managed using the Live API. For information, see
-      <a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html#Create_an_ad_configuration">Brightcove Live API: Server-Side Ad Insertion (SSAI)</a>.
-    </aside>
-    <p>To add a Live ad configuration, follow these steps.</p>
+      Une fois les configurations d'annonces VOD créées, ouvrez le module Players et cliquez sur un lecteur pour afficher les propriétés. Lorsque la<strong> propriété de</strong> publicité côté serveur (SSAI) est activée, une configuration publicitaire peut être sélectionnée. Pour plus d'informations sur la configuration de la publicité des lecteur
+s, voir<a href="https://studio.support.brightcove.com/players/configuring-player-advertising-using-players-module.html"> Configuration de la publicité des lecteur
+s à l'aide du module Players (</a>lien externe
+    </p>  </section><section class="bcls-section">
+    <h2 id="live">Création d'une configuration de publicité en direct</h2> <aside class="bcls-aside bcls-aside--information"> Remarque: Les configurations d'annonces en direct côté serveur peuvent également être gérées à l'aide de l'API Live. Pour plus d'informations, consultez l'API Live de<a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html#Create_an_ad_configuration"> Brightcove: Insertion de publicités côté serveur (SSAI)</a>. </aside>
+    <p>Pour ajouter une configuration de publicité en direct, procédez comme suit.</p>
     <ol class="bcls-tasklist-restart">
       <li>
-        On the Server-Side Ad Settings page, click <strong>Create Ad Configuration &gt; Live</strong>.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="https://general.support.brightcove.com/assets/images/admin/node18748-create-live-ad.png" />
-        </figure>
+        Sur la page Paramètres des publicités côté serveur, cliquez sur<strong> Créer une configuration publicitaire &gt; En direct</strong>. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="https://general.support.brightcove.com/assets/images/admin/node18748-create-live-ad.png" /> </figure>
       </li>
-      <li>Enter a <strong>Name</strong>.</li>
+      <li>Saisissez un<strong> nom</strong>.</li>
       <li>
-        Select the <strong>Ad Server Response</strong>: <ul>
-          <li>VAST</li>
-          <li>DFP (Ad Rules)</li>
-          <li>Smart XML</li>
+        Sélectionnez la réponse du serveur<strong> publicitaire</strong>: <ul>
+          <li>VASTE</li>
+          <li>DFP (règles publicitaires)</li>
+          <li>XML intelligent</li>
         </ul>
       </li>
-      <li>Enter the<strong> Ad Tag</strong>.</li>
-      <li>Click <strong>Save</strong>.</li>
+      <li>Saisissez l'<strong>Ad Tag</strong>.</li>
+      <li>Cliquez sur<strong> Enregistrer</strong>.</li>
     </ol>
     <p>
-      To edit an ad configuration, click the ad name, make the changes and then click <strong>Save</strong>. To delete an ad config, check the box next to the ad and then click <strong>Delete</strong>. To duplicate an ad config, check the box next to the ad and then click <strong>Duplicate</strong>.
+      Pour modifier la configuration d'une annonce, cliquez sur le nom de l'annonce, apportez les modifications, puis cliquez sur<strong> Enregistrer</strong>. Pour supprimer une configuration d'annonce, cochez la case en regard de l'annonce, puis cliquez sur<strong> Supprimer</strong>. Pour dupliquer une configuration d'annonce, cochez la case en regard de l'annonce, puis cliquez sur<strong> Dupliquer</strong>.
     </p>
     <p>
-      Once Live ad configurations have been created, when an event is created with the <strong>Enable Server-Side Ad Insertion (SSAI)</strong> property enabled, an ad configuration can be selected in the Control Room. For information on creating live events, see <a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html">Creating and Managing Live Events using the Live Module</a>.
+      Une fois les configurations d'annonces en direct créées, lorsqu'un événement est créé avec la<strong> propriété</strong> Activer l'insertion publicitaire côté serveur (SSAI) activée, une configuration publicitaire peut être sélectionnée dans la Control Room. Pour plus d'informations sur la création d'événements en direct, voir<a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html"> Création et gestion d'événements en direct à l'aide du module Live</a>.
     </p>
 
-    <h3>Player Enhancements for Live SSAI</h3>
-    <p>Brightcove's Player Enhancements for Live SSAI allows you to add client-side components to live streams, including ad counts, ad countdown timers, click through ads and companion ads. For details, see the <a href="https://apis.support.brightcove.com/live-api/ssai/overview-player-enhancements-live-ssai.html">Overview: Player Enhancements for Live SSAI</a> document.</p>
-    <p>To use this feature, contact your account manager to enable your account for:</p>
+    <h3>Améliorations du lecteur pour Live SSAI</h3>
+    <p>Les améliorations du lecteur pour Live SSAI de Brightcove vous permettent d'ajouter des composants côté client aux flux en direct, y compris le nombre d'annonces, les comptes à rebours des publicités, les publicités cliquables et les publicités associées. Pour plus de détails, consultez la<a href="https://apis.support.brightcove.com/live-api/ssai/overview-player-enhancements-live-ssai.html"> vue d'ensemble: </a>Document Améliorations du lecteur pour Live SSAI.</p>
+    <p>Pour utiliser cette fonctionnalité, contactez votre responsable de compte afin d'activer votre compte pour:</p>
     <ul>
-      <li> Live streams</li>
-      <li>Server-Side Ad Insertion (SSAI)</li>
-      <li>Player Enhancements for Live SSAI</li>
+      <li> Diffusions en direct</li>
+      <li>Insertion de publicités côté serveur (SSAI)</li>
+      <li>Améliorations du lecteur pour Live SSAI</li>
     </ul>
 
 
 
-    <p>To add player enhancements, follow these steps:</p>
+    <p>Pour ajouter des améliorations au lecteur, procédez comme suit:</p>
     <ol class="bcls-tasklist-restart">
-      <li>On the Server-Side Ad Settings page, click <strong>Create Ad Configuration &gt; Live</strong>.
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Create Live ad configuration" src="https://general.support.brightcove.com/assets/images/admin/node18748-create-live-ad.png" /></figure>
+      <li>Sur la page Paramètres des publicités côté serveur, cliquez sur<strong> Créer une configuration publicitaire &gt; En direct</strong>. <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Créer une configuration de publicité en direct" src="https://general.support.brightcove.com/assets/images/admin/node18748-create-live-ad.png" /></figure>
       </li>
-      <li>Enter the data as described in the <a href="#live">add a Live ad configuration</a> steps above.</li>
-      <li>Select <strong>Client Options Enabled</strong> to see a list of feature options.
-        <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Client Options Enabled" src="https://general.support.brightcove.com/assets/images/admin/node18748-client-options-enabled.png" /></figure>
+      <li>Saisissez les données comme décrit dans les<a href="#live"> étapes de configuration de l'</a>ajout d'une annonce en direct ci-dessus.</li>
+      <li>Sélectionnez Options<strong> du client activées</strong> pour afficher la liste des options de fonctionnalités. <figure class="bcls-figure"><img class="bcls-image--no-border" alt="Options du client activées" src="https://general.support.brightcove.com/assets/images/admin/node18748-client-options-enabled.png" /></figure>
       </li>
-      <li>Select the client-side components that you want to add to your live stream.</li>
-      <li>Click <strong>Save</strong>.</li>
-    </ol>
-  </section>
-</article>
+      <li>Sélectionnez les composants côté client que vous souhaitez ajouter à votre flux en direct.</li>
+      <li>Cliquez sur<strong> Enregistrer</strong>.</li>
+    </ol>  </section></article>

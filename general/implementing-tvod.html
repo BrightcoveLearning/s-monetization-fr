@@ -1,18 +1,13 @@
-<h1>{{ page.title }}</h1>
-<article class="bcls-article">
-  <summary>{{ page.description }}</summary>
-
-  <section class="bcls-section">
-    <h2 id="Introduction">Introduction</h2>
-    <p>Transactional Video On Demand (TVOD) is a monetization package where viewers can pay a one-time fee to either purchase or rent an OTT asset. A TVOD package can be associated with one asset or a bundle of assets, like a series or season. The viewer can be alloted a certain amount of time to view the asset, or it can be unlimited. </p>
-    <p>Unlike SVOD where viewers pay a subscription to access video content, TVOD viewers pay a fee for each piece of content they want to view.</p>
-    <p>TVOD packages give the viewers the following options for watching content:</p>
+<h1>{{page.title}}</h1> <article class="bcls-article"> <summary>{{page.description}}</summary> <section class="bcls-section">
+    <h2 id="Introduction">Présentation</h2>
+    <p>Transactional Video On Demand (TVOD) est un package de monétisation dans lequel les spectateurs peuvent payer des frais uniques pour acheter ou louer un actif OTT. Un package TVOD peut être associé à un actif ou à un ensemble d'actifs, comme une série ou une saison. Le spectateur peut disposer d'un certain temps pour visualiser la ressource, ou il peut être illimité. </p>
+    <p>Contrairement à la SVOD où les spectateurs paient un abonnement pour accéder au contenu vidéo, les spectateurs de TVOD paient une redevance pour chaque contenu qu'ils souhaitent visionner.</p>
+    <p>Les forfaits TVOD offrent aux spectateurs les options suivantes pour regarder du contenu:</p>
     <ul>
-      <li>Rent</li>
-      <li>Buy</li>
+      <li>Loyer</li>
+      <li>Acheter</li>
     </ul>
-    <!-- <p>See the <a href="/monetization/monetization-options.html">Understanding Monetization Options</a> document for more information on AuthVOD, as well as all monetization packages you can use with Brightcove Beacon.</p> -->
-  </section>
+    <!-- <p>See the <a href="/monetization/monetization-options.html">Understanding Monetization Options</a> document for more information on AuthVOD, as well as all monetization packages you can use with Brightcove Beacon.</p> --> </section>
 
   <!-- <section class="bcls-section">
     <h2 id="section-name">Configuring an AuthVOD package overview</h2>
@@ -23,106 +18,100 @@
       <li>In Video Cloud Studio, add data to videos' custom fields to assign them to the AuthVOD package.</li>
       <li>In Brightcove Beacon, ingest the videos and clear the cache.</li>
     </ol>
-  </section> -->
-
-  <section class="bcls-section">
-    <h2 id="Creating_a_TVOD_package">Creating a TVOD package</h2>
-    <p>To create a TVOD package in Brightcove Beacon, follow these steps:</p>
+  </section> --> <section class="bcls-section">
+    <h2 id="Creating_a_TVOD_package">Création d'un package TVOD</h2>
+    <p>Pour créer un package TVOD dans Brightcove Beacon, procédez comme suit:</p>
     <ol class="bcls-tasklist">
       <li>
-        <p>Login to Brightcove Beacon.</p>
+        <p>Connectez-vous à Brightcove Beacon.</p>
         <ol>
-          <li>In the top navigation, select <strong>Commerce</strong></li>
-          <li>In the left navigation, select <strong>TVOD Plans</strong></li>
-          <li>click <strong>Add New TVOD Plan</strong></li>
-        </ol>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/commerce.png" alt="Commerce top navigation">
-        </figure>
+          <li>Dans le menu de navigation supérieur, sélectionnez<strong> Commerce</strong></li>
+          <li>Dans le menu de navigation de gauche, sélectionnez<strong> Forfaits TVOD</strong></li>
+          <li>cliquez sur<strong> Ajouter un nouveau plan TVOD</strong></li>
+        </ol> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/commerce.png" alt="Navigation par le haut Commerce"> </figure>
       </li>
       <li>
-        <p>For the <strong>Package</strong> tab, enter details for your TVOD Plan.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/package-tab-rent.png" alt="Package tab">
-        </figure> 
+        <p>Dans l'<strong>onglet</strong> Forfait, saisissez les détails de votre forfait TVOD.</p> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/package-tab-rent.png" alt="Onglet Package"> </figure> 
         <p>
-          This table contains the fields you will find in the <strong>Package</strong> tab: </p>
+          Ce tableau contient les champs que vous trouverez dans l'<strong>onglet</strong> Package: </p>
         <table class="bcls-table">
           <thead class="bcls-table__head">
             <tr>
-              <th>Field</th>
-              <th>Required</th>
+              <th>terrain</th>
+              <th>Requis</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody class="bcls-table__body">
             <tr>
-              <td><strong>Name</strong></td>
-              <td>Yes</td>
-              <td>Name of the TVOD package</td>
+              <td><strong>Nom</strong></td>
+              <td>Oui</td>
+              <td>Nom du package TVOD</td>
             </tr>
             <tr>
-              <td><strong>TVOD Plan Type</strong></td>
-              <td>Yes</td>
+              <td><strong>Type de plan TVOD</strong></td>
+              <td>Oui</td>
               <td>
-                Select one:
+                Sélectionnez-en un:
                 <ul>
-                  <li><strong>Multiple Assets</strong> - Associate a bundle of assets with this plan; for example, viewers can purchase/rent a full series or season</li>
-                  <li><strong>Individual Assets</strong> - Viewers can buy or rent 1 asset</li>
+                  <li><strong>Multiple Assets</strong> - Associez un ensemble de ressources à ce plan&nbsp;; par exemple, les spectateurs peuvent acheter/louer une série complète ou une saison</li>
+                  <li><strong>Actifs individuels</strong> - Les spectateurs peuvent acheter ou louer 1 actif</li>
                 </ul>
               </td>
             </tr>
             <tr>
-              <td><strong>Purchase Type</strong></td>
-              <td>Yes</td>
+              <td><strong>Type d'achat</strong></td>
+              <td>Oui</td>
               <td>
-                Select one:
+                Sélectionnez-en un:
                 <ul>
-                  <li><strong>Buy</strong> - Allow viewers to purchase an asset or bundle of assets</li>
-                  <li><strong>Rent</strong> - Allow viewers to rent an asset or bundle of assets for a period of time</li>
+                  <li><strong>Acheter</strong> - Permettre aux spectateurs d'acheter un actif ou un ensemble d'actifs</li>
+                  <li><strong>Location</strong> - Permettre aux spectateurs de louer un actif ou un ensemble d'actifs pour une période donnée</li>
                 </ul>
               </td>
             </tr>
             <tr>
-              <td><strong>Rent period</strong></td>
-              <td>No</td>
+              <td><strong>Période de location</strong></td>
+              <td>Non</td>
               <td>
-                Number of days an asset is available for viewing once it has been rented. This field appears when the <strong>Purchase Type</strong> is set to <strong>Rent</strong>.
+                Nombre de jours pendant lesquels un actif est disponible pour consultation une fois qu'il a été loué. Ce champ apparaît lorsque le type<strong> d'achat</strong> est défini sur<strong> Loyer</strong>.
               </td>
             </tr>
             <tr>
-              <td><strong>Status</strong></td>
-              <td>Yes</td>
+              <td><strong>Statut</strong></td>
+              <td>Oui</td>
               <td>
-                  Select one of the following types:
+                  Sélectionnez l'un des types suivants:
                   <ul>
                       <li>
-                          Published
+                          Publié
                       </li>
                       <li>
-                          Unpublished
+                          Non publié
                       </li>
                   </ul>
               </td>
             </tr>
             <tr>
-              <td><strong>Allow Downloads</strong></td>
-              <td>Yes</td>
+              <td><strong>Autoriser les téléchargements</strong></td>
+              <td>Oui</td>
               <td>
-                  Set to <strong>Yes</strong> to allow this series to be downloaded by the user for offline playback. For details, see the <a href="https://beacon-help.support.brightcove.com/media/offline-playback-beacon.html">Offline Playback with Brightcove Beacon Apps</a> document.
+                  Définissez cette<strong> option</strong> sur Oui pour permettre à l'utilisateur de télécharger cette série pour une lecteur hors ligne. Pour plus de détails, consultez le<a href="https://beacon-help.support.brightcove.com/media/offline-playback-beacon.html"> document Lecture</a> hors ligne avec les applications Brightcove Beacon.
               </td>
             </tr>
             <tr>
-              <td><strong>Payment methods to use</strong></td>
-              <td>Yes</td>
+              <td><strong>Modes de paiement à utiliser</strong></td>
+              <td>Oui</td>
               <td>
-                Select one of the following types:
+                Sélectionnez l'un des types suivants:
                   <ul>
                       <li>
-                          Stripe
+                          Rayures
                       </li>
                       <li>
-                          Beacon Store
+                          Boutique Beacon
                       </li>
                   </ul> 
               </td>
@@ -131,216 +120,188 @@
         </table>
       </li>
       <li>
-        <p>If you are using Stripe, select <strong>Stripe</strong> to see <strong>Payment methods details</strong>.</p>
-        <aside class="bcls-aside bcls-aside--tip">Availability is for the TVOD package. For example, if the <strong>Permitted locations</strong> is set for the US, then all viewers will be able play a movie or asset associated with this package, but only viewers in the US can buy/rent the asset.</aside>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/stripe-details.png" alt="Stripe payment details">
-        </figure> 
+        <p>Si vous utilisez Stripe, sélectionnez<strong> Stripe</strong> pour voir les détails des modes de<strong> paiement</strong>.</p> <aside class="bcls-aside bcls-aside--tip">La disponibilité concerne le forfait TVOD. Par exemple, si l'<strong>option Lieux autorisés</strong> est définie pour les États-Unis, tous les spectateurs pourront visionner un film ou un élément associé à ce forfait, mais seuls les spectateurs aux États-Unis peuvent acheter/louer l'actif.</aside> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/stripe-details.png" alt="Informations de paiement Stripe"> </figure> 
         <p>
-          This table contains the fields Stripe payment details: </p>
+          Ce tableau contient les champs Détails de paiement Stripe: </p>
         <table class="bcls-table">
           <thead class="bcls-table__head">
             <tr>
-              <th>Field</th>
-              <th>Required</th>
+              <th>terrain</th>
+              <th>Requis</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody class="bcls-table__body">
             <tr>
-              <td><strong>Start Time</strong></td>
-              <td>Yes</td>
-              <td>Schedule a starting date this package will be available</td>
+              <td><strong>Heure de début</strong></td>
+              <td>Oui</td>
+              <td>Planifiez une date de début pour que ce forfait soit disponible</td>
             </tr>
             <tr>
-                <td><strong>End Time</strong></td>
-                <td>Yes</td>
+                <td><strong>Heure de fin</strong></td>
+                <td>Oui</td>
                 <td>
-                    Schedule an ending date when this package will no longer be available
+                    Fixez une date de fin à laquelle ce package ne sera plus disponible
                 </td>
             </tr>
             <tr>
-              <td><strong>Devices to publish</strong></td>
-              <td>Yes</td>
+              <td><strong>Appareils à publier</strong></td>
+              <td>Oui</td>
               <td>
-                  Add the devices you wish to publish to. Select the <strong>Select / Unselect All Devices</strong> to see a list of available devices.
+                  Ajoutez les appareils sur lesquels vous souhaitez publier. Sélectionnez<strong> Sélectionner/Désélectionner tous les appareils</strong> pour afficher la liste des appareils disponibles.
               </td>
             </tr>
             <tr>
-              <td><strong>Permitted locations</strong></td>
-              <td>Yes</td>
+              <td><strong>Lieux autorisés</strong></td>
+              <td>Oui</td>
               <td>
-                <p>Select the locations where you want to stream your content, if no restrictions enter <strong>World</strong>.</p>
-                <aside class="bcls-aside bcls-aside--information">
-                    <p>If you don't specify at least 1 permitted location, then you may see this message from your app:</p>
-                    <figure class="bcls-figure">
-                        <img class="bcls-image" src="/assets/images/s-general-img/series-seasons-episodes/no-content.jpg" alt="No content" /> </figure>
-                </aside>
+                <p>Sélectionnez les emplacements où vous souhaitez diffuser votre contenu, si aucune restriction n'entre dans<strong> World</strong>.</p> <aside class="bcls-aside bcls-aside--information">
+                    <p>Si vous ne spécifiez pas au moins un emplacement autorisé, le message suivant peut s'afficher dans votre application:</p> <figure class="bcls-figure">
+                        <img class="bcls-image" src="/assets/images/s-general-img/series-seasons-episodes/no-content.jpg" alt="Aucun contenu" />  </figure></aside>
               </td>
             </tr>
             <tr>
-              <td><strong>Denied locations</strong></td>
-              <td>No</td>
+              <td><strong>Lieux refusés</strong></td>
+              <td>Non</td>
               <td>
-                  Select the locations where you DO NOT want to stream your content. Enter <strong>World</strong> if you have no restrictions.
+                  Sélectionnez les emplacements où vous NE SOUHAITEZ PAS diffuser votre contenu en continu. Entrez dans<strong> World</strong> si vous n'avez aucune restriction.
               </td>
             </tr>
             <tr>
-              <td><strong>Price</strong></td>
-              <td>Yes</td>
+              <td><strong>Prix</strong></td>
+              <td>Oui</td>
               <td>
-                  Specify the price that users must pay to view content associated with this package.
+                  Spécifiez le prix que les utilisateurs doivent payer pour voir le contenu associé à ce package.
               </td>
             </tr>
             <tr>
-              <td><strong>Currency</strong></td>
-              <td>Yes</td>
+              <td><strong>Devise</strong></td>
+              <td>Oui</td>
               <td>
-                  Specify the currency type for the package price.
+                  Spécifiez le type de devise pour le prix du forfait.
               </td>
             </tr>
             <tr>
-              <td><strong>Product Description</strong></td>
-              <td>Yes</td>
+              <td><strong>Description du produit</strong></td>
+              <td>Oui</td>
               <td>
-                Product Description is sent to Stripe so that you can identify the package.
+                La description du produit est envoyée à Stripe afin que vous puissiez identifier le colis.
               </td>
             </tr>
           </tbody>
         </table>
       </li>
       <li>
-        <p>If you are using the Beacon store, select <strong>Beacon Store</strong> to see <strong>Payment methods details</strong>.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/beacon-store-details.png" alt="Beacon Store payment details">
-        </figure> 
+        <p>Si vous utilisez la boutique Beacon, sélectionnez<strong> Beacon Store</strong> pour voir les détails des modes de<strong> paiement</strong>.</p> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/beacon-store-details.png" alt="Informations de paiement Beacon Store"> </figure> 
         <p>
-          This table contains the fields Beacon Store payment details: </p>
+          Ce tableau contient les champs Détails de paiement Beacon Store: </p>
         <table class="bcls-table">
           <thead class="bcls-table__head">
             <tr>
-              <th>Field</th>
-              <th>Required</th>
+              <th>terrain</th>
+              <th>Requis</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody class="bcls-table__body">
             <tr>
-              <td><strong>Beacon Store ID</strong></td>
-              <td>Yes</td>
-              <td>TVOD with the Beacon Store requires setup of the SKU. The <strong>Beacon Store ID</strong> is the <strong>package_name</strong> sent to the Beacon Store using the API.</td>
+              <td><strong>ID de magasin Beacon</strong></td>
+              <td>Oui</td>
+              <td>La TVOD avec le Beacon Store nécessite la configuration du SKU. L'ID du magasin<strong> Beacon</strong> est le<strong> nom_package</strong> envoyé au Beacon Store à l'aide de l'API.</td>
             </tr>
           </tbody>
         </table>
       </li>
       <li>
-        <p>For the <strong>Textual Data</strong> tab, enter details for your plan.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/textual-data.png" alt="Textual Data tab">
-        </figure> 
+        <p>Dans l'<strong>onglet Données</strong> textuelles, saisissez les détails de votre plan.</p> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/textual-data.png" alt="Onglet Données textuelles"> </figure> 
         <p>
-          This table contains the fields you will find in the <strong>Textual Data</strong> tab: </p>
+          Ce tableau contient les champs que vous trouverez dans l'<strong>onglet Données</strong> textuelles: </p>
         <table class="bcls-table">
           <thead class="bcls-table__head">
             <tr>
-              <th>Field</th>
-              <th>Required</th>
+              <th>terrain</th>
+              <th>Requis</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody class="bcls-table__body">
             <tr>
-              <td><strong>Pack Name</strong></td>
-              <td>Yes</td>
-              <td>Display name shown to viewers</td>
+              <td><strong>Nom du pack</strong></td>
+              <td>Oui</td>
+              <td>Nom affiché aux spectateurs</td>
             </tr>
             <tr>
               <td><strong>Headline</strong></td>
-              <td>Yes</td>
-              <td>Description shown to viewers, for example <em>Holiday Special!</em></td>
+              <td>Oui</td>
+              <td>Description présentée aux spectateurs, par exemple<em> Holiday Special&nbsp;!</em></td>
             </tr>
           </tbody>
         </table>
       </li>
       <li>
-        <p>For the <strong>Non-Textual Data</strong> tab, enter details for your plan.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/non-textual-data.png" alt="Non-Textual Data tab">
-        </figure> 
+        <p>Dans l'<strong>onglet Données</strong> non textuelles, saisissez les détails de votre plan.</p> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/non-textual-data.png" alt="Onglet Données non textuelles"> </figure> 
         <p>
-          This table contains the fields you will find in the <strong>Non-Textual Data</strong> tab: </p>
+          Ce tableau contient les champs que vous trouverez dans l'<strong>onglet Données</strong> non textuelles: </p>
         <table class="bcls-table">
           <thead class="bcls-table__head">
             <tr>
-              <th>Field</th>
-              <th>Required</th>
+              <th>terrain</th>
+              <th>Requis</th>
               <th>Description</th>
             </tr>
           </thead>
           <tbody class="bcls-table__body">
             <tr>
-              <td><strong>Package Image</strong></td>
-              <td>No</td>
-              <td>Supply an image for use next to the package name</td>
+              <td><strong>Image du package</strong></td>
+              <td>Non</td>
+              <td>Fournissez une image à utiliser en regard du nom du package</td>
             </tr>
           </tbody>
         </table>
       </li>
-      <li>Click <strong>Create Package</strong>.</li>
-    </ol>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Assigning_TVOD_packages_to_content">Assigning TVOD packages to content</h2>
-    <p>To add content to TVOD packages, edit each asset and associate it with applicable packages. The following content types can be used with TVOD packages:</p>
+      <li>Cliquez sur<strong> Créer un package</strong>.</li>
+    </ol>  </section><section class="bcls-section">
+    <h2 id="Assigning_TVOD_packages_to_content">Attribution de packages TVOD au contenu</h2>
+    <p>Pour ajouter du contenu aux packages TVOD, modifiez chaque ressource et associez-la aux packages applicables. Les types de contenu suivants peuvent être utilisés avec les packages TVOD:</p>
     <ul>
-      <li>Movies</li>
-      <li>Series, Seasons, and Episodes</li>
-      <li>Channels and Live Events</li>
+      <li>Films</li>
+      <li>Séries, saisons et épisodes</li>
+      <li>Chaînes et événements en direct</li>
       <!-- <li>Playlists and Pages</li> -->
       <!-- <li>Programs</li> -->
     </ul>
-    <p>These steps walk through adding a TVOD package to a movie, but the process is similar for other asset types.</p>
+    <p>Ces étapes expliquent comment ajouter un package TVOD à un film, mais le processus est similaire pour les autres types de ressources.</p>
     <ol class="bcls-tasklist-restart">
       <li>
-        <p>Return to Brightcove Beacon. In the top navigation, select <strong>Movies</strong>. Click the <strong>Name</strong> link for your movie.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/movie-home.png" alt="Movies list">
-        </figure>
+        <p>Revenir à Brightcove Beacon. Dans le menu de navigation supérieur, sélectionnez<strong> Films</strong>. Cliquez sur le<strong> lien</strong> Nom de votre film.</p> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/movie-home.png" alt="Liste des films"> </figure>
       </li>
       <li>
-        <p>Click the <strong>Rights & Scheduling</strong> tab.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/movie-rights.png" alt="Rights & Scheduling tab">
-        </figure>
+        <p>Cliquez sur l'<strong>onglet</strong> Droits et planification.</p> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/movie-rights.png" alt="Onglet Droits et planification"> </figure>
       </li>
       <li>
-        <p>In the <strong>Availability Details</strong> section, click <strong>Rights Type</strong> and select <strong>Buy/Rent - TVOD</strong>.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/buy-rent-tvod.png" alt="Rights Type">
-        </figure>
+        <p>Dans la<strong> section Détails de</strong> disponibilité, cliquez sur Type de<strong> droits</strong> et sélectionnez<strong> Acheter/louer - TVOD</strong>.</p> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/buy-rent-tvod.png" alt="Type de droits"> </figure>
       </li>
       <li>
-        <p>Click in the <strong>Select Package</strong> input area and select one or more TVOD packages that you want associated with this movie.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/select-pkg.png" alt="Select Package">
-        </figure>
+        <p>Cliquez dans la zone<strong> d'entrée</strong> Sélectionner un package et sélectionnez un ou plusieurs packages TVOD que vous souhaitez associer à ce film.</p> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/select-pkg.png" alt="Sélectionner un forfait"> </figure>
       </li>
-      <li>Click <strong>Update Movie</strong>.</li>
+      <li>Cliquez sur<strong> Update Movie</strong>.</li>
       <li>
-        <p>Once you associate TVOD packages with content, then you will see that content listed in the package details.</p>
-        <p>Return to your TVOD plan.</p>
+        <p>Une fois que vous associez les packages TVOD au contenu, vous verrez ce contenu répertorié dans les détails du package.</p>
+        <p>Revenez à votre forfait TVOD.</p>
         <ol>
-          <li>In the top navigation, select <strong>Commerce</strong></li>
-          <li>In the left navigation, select <strong>TVOD Plans</strong></li>
-          <li>click <strong>Content</strong> tab</li>
+          <li>Dans le menu de navigation supérieur, sélectionnez<strong> Commerce</strong></li>
+          <li>Dans le menu de navigation de gauche, sélectionnez<strong> Forfaits TVOD</strong></li>
+          <li>cliquez sur<strong> l'onglet</strong> Contenu</li>
         </ol>
-        <p>Here, you will see content associated with this plan.</p>
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/tvod-content.png" alt="TVOD Content tab">
-        </figure>
+        <p>Ici, vous verrez le contenu associé à ce plan.</p> <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/implementing-tvod/tvod-content.png" alt="Onglet Contenu TVOD"> </figure>
       </li>
-    </ol>
-  </section>
-
-</article>
+    </ol>  </section></article>

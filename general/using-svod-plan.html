@@ -1,221 +1,182 @@
-<h1>{{ page.title }}</h1>
-<article class="bcls-article">
-  <summary>{{ page.description }}</summary>
-
-  <section class="bcls-section">
-    <h2 id="Overview">Overview</h2>
+<h1>{{page.title}}</h1> <article class="bcls-article"> <summary>{{page.description}}</summary> <section class="bcls-section">
+    <h2 id="Overview">Aperçu</h2>
     <p>
-      An SVOD Plan defines how a particular set of videos can be purchased by your apps' customers. The SVOD plan must be created in Brightcove Beacon, and is detailed in the <a href="/monetization/general/creating-svod-plan.html">Creating an SVOD Plan</a> document. Also crucial in the use of the SVOD plan are the Video Cloud custom fields created for videos in a Video Cloud account, as detailed in the
-      <a href="/monetization/general/vc-custom-fields.html"> Creating Video Cloud Custom Fields
-      </a> document. Specifically, the <a href="/monetization/general/vc-custom-fields.html#Rights_Management_fields"> Rights Management fields
-      </a>
-      will be used.
-    </p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Understanding_the_rights_management_custom_fields"> Understanding the rights management custom fields </h2>
-    <p>The rights management custom fields consist of:</p>
+      Un plan SVOD définit comment les clients de vos applications peuvent acheter un ensemble de vidéos particulier. Le plan de SVOD doit être créé dans Brightcove Beacon et est détaillé dans le<a href="/monetization/general/creating-svod-plan.html"> document</a> Création d'un plan SVOD. Les champs personnalisés Video Cloud créés pour les vidéos d'un compte Video Cloud, comme détaillé dans le<a href="/monetization/general/vc-custom-fields.html"> document</a> Création de champs personnalisés Video Cloud, sont également essentiels à l'utilisation du plan SVOD. Plus précisément, les champs<a href="/monetization/general/vc-custom-fields.html#Rights_Management_fields"> Rights Management</a> seront utilisés.
+    </p>  </section><section class="bcls-section">
+    <h2 id="Understanding_the_rights_management_custom_fields"> Comprendre les champs personnalisés de gestion des droits </h2>
+    <p>Les champs personnalisés de gestion des droits sont les suivants:</p>
     <ul>
-      <li>beacon.rights.&lt;counter&gt;.type</li>
-      <li>beacon.rights.&lt;counter&gt;.startDate</li>
-      <li>beacon.rights.&lt;counter&gt;.endDate</li>
-      <li>beacon.rights.&lt;counter&gt;.devices</li>
-      <li>beacon.rights.&lt;counter&gt;.locationsPermit</li>
-      <li>beacon.rights.&lt;counter&gt;.locationsDeny</li>
-      <li>beacon.rights.&lt;counter&gt;.packageName</li>
-      <li>beacon.rights.&lt;counter&gt;.adConfiguration</li>
+      <li>beacon.droits.&lt;compteur &gt; .type</li>
+      <li>beacon.droits.&lt;Compteur &gt;. Date de début</li>
+      <li>beacon.droits.&lt;Compteur &gt;. Date de fin</li>
+      <li>beacon.droits.&lt;compteur &gt; .devices</li>
+      <li>beacon.droits.&lt;Comptoir &gt;. Permis d'emplacements</li>
+      <li>beacon.droits.&lt;Compteur&gt;.locationsDeny</li>
+      <li>beacon.droits.&lt;Compteur&gt;.packagename</li>
+      <li>beacon.droits.&lt;Compteur&gt;Configuration .ad</li>
     </ul>
     <p>
-      First consider the <strong>&lt;counter&gt;</strong> part of each name.
-      This is included as you may wish to create multiple sets of rights management fields, and the <strong>&lt;counter&gt;</strong> is utilized so you can use array type syntax to group associated fields.
+      Considérez d'abord la<strong> partie </strong>&lt;compteur&gt; de chaque nom. Ceci est inclus car vous souhaiterez peut-être créer plusieurs ensembles de champs de gestion des droits, et le <strong>&lt;compteur&gt;</strong> est utilisé afin que vous puissiez utiliser la syntaxe de type tableau pour regrouper les champs associés.
     </p>
     <p>
-      For instance, say you wanted to create SVOD plans around holidays and have packages for:
+      Par exemple, supposons que vous souhaitiez créer des plans de SVOD pendant les vacances et proposer des forfaits pour:
     </p>
     <ul>
-      <li>Earth Day</li>
-      <li>Arbor Day</li>
-      <li>New Years</li>
+      <li>Journée de la Terre</li>
+      <li>Journée Arbor</li>
+      <li>Nouvel An</li>
     </ul>
     <p>
-      You must go into Video Cloud and create three sets of rights management fields, using counter values of 0-2 (or 1-3 if you prefer) that would appear as shown here:
-    </p>
-    <figure class="bcls-figure">
-      <img class="bcls-image" src="/assets/images/s-monetization-img/using-subscription-package/index-of-rights-fields.png" alt="index of rights fields" />
-    </figure>
+      Vous devez accéder à Video Cloud et créer trois ensembles de champs de gestion des droits, en utilisant des valeurs de compteur de 0 à 2 (ou de 1 à 3 si vous préférez) qui apparaîtraient comme indiqué ici:
+    </p> <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/s-monetization-img/using-subscription-package/index-of-rights-fields.png" alt="index des champs de droits" /> </figure>
     <p>
-      To summarize, for each package you wish to use you will need to create a "counter" set of rights management fields.
-    </p>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Package_and_custom_field_similar_rights"> Package and custom field similar rights </h2>
+      En résumé, pour chaque package que vous souhaitez utiliser, vous devrez créer un ensemble compteur-fr/ de champs de gestion des droits.
+    </p>  </section><section class="bcls-section">
+    <h2 id="Package_and_custom_field_similar_rights"> Droits similaires sur les packages et les champs personnalisés </h2>
     <p>
-      Some custom fields to which you can assign data, and have applied to a video when ingested, can seem the same as form fields when creating your package in Brightcove Beacon. For example, the custom field <em>beacon.rights.&lt;counter&gt;.locationsDeny</em> and the package's <strong>Denied locations</strong> form field may seem like they could be in conflict. Remember, when considering these "conflicts" there are two different questions being asked, those being: </p>
+      Certains champs personnalisés auxquels vous pouvez attribuer des données et que vous avez appliqués à une vidéo lors de l'acquisition peuvent ressembler à des champs de formulaire lors de la création de votre package dans Brightcove Beacon. Par exemple, le champ personnalisé<em> beacon.rights.&lt;Counter&gt;.locationsDeny</em> et le champ de<strong> formulaire Emplacements</strong> refusés du package peuvent sembler être en conflit. N'oubliez pas que lorsque l'on considère ces conflits-fr/, deux questions différentes se posent, à savoir: </p>
     <ul>
-      <li>Do the rights on the video allow it to play?</li>
-      <li>Is a user allowed to subscribe to the package?</li>
+      <li>Les droits sur la vidéo permettent-ils de la lire&nbsp;?</li>
+      <li>Un utilisateur est-il autorisé à s'abonner au package&nbsp;?</li>
     </ul>
     <p>
-      Consider these scenarios:
+      Envisagez ces scénarios:
     </p>
     <ul>
       <li>
-        An end date in the <em>beacon.rights.&lt;counter&gt;.endDate</em> custom field is later than the end date of the package itself. This means the video's rights would allow it to be viewed until the custom field end date, but the user could not subscribe to the package that may have, for example, lowered the cost of viewing the video.
+        Une date de fin dans<em> beacon.rights.&lt;Le champ</em> personnalisé Counter&gt;.endDate est postérieur à la date de fin du package lui-même. Cela signifie que les droits de la vidéo lui permettraient d'être visionnée jusqu'à la date de fin du champ personnalisé, mais que l'utilisateur ne pouvait pas s'abonner au package qui aurait pu, par exemple, réduire le coût de visionnage de la vidéo.
       </li>
       <li>
-        A package is created that has permitted locations of US, Canada and Mexico, and that package is assigned to the video in the custom field <em>beacon.rights.&lt;counter&gt;.packageName</em>. Also in the video's custom fields, UK is placed in the
-        <em>beacon.rights.&lt;counter&gt;.locationsPermit</em> custom field. The package is assigned to the video, but the package cannot be purchased in the UK. The video would be able to play in the UK, but it would could not be part of the package for a UK customer.
+        Un package est créé avec des emplacements autorisés aux États-Unis, au Canada et au Mexique, et ce package est affecté à la vidéo dans le champ personnalisé<em> beacon.rights.&lt;Compteur&gt;.packageName</em>. Toujours dans les champs personnalisés de la vidéo, UK est placé dans<em> beacon.rights.&lt;Counter&gt;.locationPermit champ</em> personnalisé. Le package est attribué à la vidéo, mais il ne peut pas être acheté au Royaume-Uni. La vidéo pourrait être lue au Royaume-Uni, mais elle ne pourrait pas faire partie du package pour un client britannique.
       </li>
       <li>
-        A package is created that has permitted locations of US, Canada and Mexico. In the custom fields US and Canada are added in the video's <em>beacon.rights.&lt;counter&gt;.locationsDeny</em> custom field. Here the customers in US, Canada and Mexico could subscribe to the package, but the specific video where US and Canada are denied locations means the video could not be viewed by customers in those locations even though the video is in the package.
+        Un package est créé avec des emplacements autorisés aux États-Unis, au Canada et au Mexique. Dans les champs personnalisés, les États-Unis et le Canada sont ajoutés dans le<em> beacon.rights de la vidéo.&lt;Counter&gt;.locationsDeny champ</em> personnalisé. Ici, les clients aux États-Unis, au Canada et au Mexique peuvent s'abonner au forfait, mais la vidéo spécifique dans laquelle les États-Unis et le Canada se voient refuser des emplacements signifie que la vidéo ne peut pas être visionnée par les clients de ces emplacements, même si la vidéo se trouve dans le package.
       </li>
-    </ul>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Subscription_interval_support"> Subscription interval support
+    </ul>  </section><section class="bcls-section">
+    <h2 id="Subscription_interval_support"> Support des intervalles d'abonnement
     </h2>
     <p>
-      The following table shows the time intervals supported for recurring subscriptions for each store: </p>
+      Le tableau suivant présente les intervalles de temps pris en charge pour les abonnements récurrents pour chaque boutique: </p>
     <table class="bcls-table">
       <!-- <caption class="bcls-caption--table">Table Caption (optional <strong><caption class="bcls-caption--table"></strong>)</caption> -->
       <thead class="bcls-table__head">
         <tr>
-          <th>Time Interval</th>
+          <th>Intervalle de temps</th>
           <th>Apple Store</th>
           <th>Google Play Store</th>
-          <th>Roku Store</th>
-          <th>Amazon Store</th>
-          <th>Stripe</th>
+          <th>Boutique Roku</th>
+          <th>Boutique Amazon</th>
+          <th>Rayures</th>
         </tr>
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td>1 Week</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td>1 semaine</td>
+          <td>Oui</td>
+          <td>Oui</td>
           <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td>Oui</td>
+          <td>Oui</td>
         </tr>
         <tr>
-          <td>1 Month</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td>1 mois</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Oui</td>
         </tr>
         <tr>
-          <td>3 Months</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td>3 mois</td>
+          <td>Oui</td>
+          <td>Oui</td>
           <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td>Oui</td>
+          <td>Oui</td>
         </tr>
         <tr>
-          <td>6 Months</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td>6 mois</td>
+          <td>Oui</td>
+          <td>Oui</td>
           <td></td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td>Oui</td>
+          <td>Oui</td>
         </tr>
         <tr>
-          <td>1 Year</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td>Yes</td>
-          <td>Yes</td>
+          <td>1 an</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Oui</td>
+          <td>Oui</td>
         </tr>
       </tbody>
-    </table>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Assigning_a_single_video_to_a_package"> Assigning a single video to a package
+    </table>  </section><section class="bcls-section">
+    <h2 id="Assigning_a_single_video_to_a_package"> Attribution d'une seule vidéo à un package
     </h2>
     <p>
-      To assign a single video to a package you must use Video Cloud Studio.
-      Perform the following steps:
+      Pour attribuer une seule vidéo à un package, vous devez utiliser Video Cloud Studio. Effectuez les étapes suivantes:
     </p>
     <ol class="bcls-tasklist">
-      <li>In Studio, navigate to the <strong>Media</strong> module.</li>
+      <li>Dans Studio, accédez au<strong> module</strong> Médias.</li>
       <li>
-        Click on the video's title you are adding to the package to see that video's properties.
+        Cliquez sur le titre de la vidéo que vous ajoutez au package pour voir ses propriétés.
       </li>
       <li>
-        Scroll down until you see the <strong>Custom Fields</strong> section on the right hand side and click the <strong>Edit</strong> button.
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/using-subscription-package/single-video-edit-fields.png" alt="index of rights fields" />
-        </figure>
+        Faites défiler vers le bas jusqu'à ce que vous voyiez la<strong> section Champs</strong> personnalisés sur le côté droit, puis cliquez sur le<strong> bouton</strong> Modifier. <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/using-subscription-package/single-video-edit-fields.png" alt="index des champs de droits" /> </figure>
       </li>
       <li>
-        Place the name of the SVOD plan created in Brightcove Beacon in the
-        <code translate="No">beacon.rights.&lt;counter&gt;.packageName</code> field.
+        Placez le nom du plan de SVOD créé dans Brightcove Beacon dans<code translate="No"> beacon.rights.&lt;</code>Champ Counter&gt;.packageName.
       </li>
       <li>
-        Since you are using a package, you MUST set the <code translate="No">beacon.rights.&lt;counter&gt;.type</code> to <strong>SVOD</strong>.
-        <figure class="bcls-figure">
-          <img class="bcls-image" src="/assets/images/s-monetization-img/using-subscription-package/custom-fields.png" alt="index of rights fields" />
-        </figure>
+        Puisque vous utilisez un package, vous DEVEZ définir<code translate="No"> beacon.rights.&lt;counter&gt; .type</code> vers<strong> SVOD</strong>. <figure class="bcls-figure">
+          <img class="bcls-image" src="/assets/images/s-monetization-img/using-subscription-package/custom-fields.png" alt="index des champs de droits" /> </figure>
       </li>
       <li>
-        Scroll to the bottom of the list of custom fields and click the <strong>Save</strong> button.
+        Faites défiler la liste des champs personnalisés vers le bas et cliquez sur le<strong> bouton</strong> Enregistrer.
       </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Assigning_a_single_video_to_a_package"> Assigning multiple videos to a package </h2>
+    </ol>  </section><section class="bcls-section">
+    <h2 id="Assigning_a_single_video_to_a_package"> Attribution de plusieurs vidéos à un package </h2>
     <p>
-      To assign multiple videos to a package you must use Video Cloud Studio.
-      The following screenshot is helpful when performing the steps:
-    <figure class="bcls-figure">
-      <img class="bcls-image" src="/assets/images/s-monetization-img/using-subscription-package/multiple-video-edit.png" alt="index of rights fields" />
-    </figure>
+      Pour attribuer plusieurs vidéos à un package, vous devez utiliser Video Cloud Studio. La capture d'écran suivante est utile lors de l'exécution des étapes: <figure class="bcls-figure">
+      <img class="bcls-image" src="/assets/images/s-monetization-img/using-subscription-package/multiple-video-edit.png" alt="index des champs de droits" /> </figure>
     </p>
     <ol class="bcls-tasklist-restart">
       <li>
-        In Studio, navigate to the <strong>Media</strong> module and check the checkbox in front of each video you wish to add to the package.
+        Dans Studio, accédez au<strong> module</strong> Médias et cochez la case en regard de chaque vidéo que vous souhaitez ajouter au package.
       </li>
-      <li>Click the <strong>Quick Edit</strong> button.</li>
+      <li>Cliquez sur le<strong> bouton</strong> Quick Edit.</li>
       <li>
-        The <strong>Quick Edit</strong> section appears on the right side of the screen, and there you can place the name of the SVOD plan created in Brightcove Beacon in the
-        <code translate="No">beacon.rights.&lt;counter&gt;.packageName</code> field.
-      </li>
-      <li>
-        Since you are using a package, you MUST set the <code translate="No">beacon.rights.&lt;counter&gt;.type</code> to <strong>SVOD</strong>.
+        La<strong> section</strong> Quick Edit apparaît sur le côté droit de l'écran, et vous pouvez y placer le nom du plan de SVOD créé dans Brightcove Beacon dans<code translate="No"> beacon.rights.&lt;</code>Champ Counter&gt;.packageName.
       </li>
       <li>
-        At the bottom of the <strong>Quick Edit</strong> section, click the <strong>Save</strong> button.
+        Puisque vous utilisez un package, vous DEVEZ définir<code translate="No"> beacon.rights.&lt;counter&gt; .type</code> vers<strong> SVOD</strong>.
+      </li>
+      <li>
+        Au bas de la<strong> section</strong> Quick Edit, cliquez sur le<strong> bouton</strong> Enregistrer.
       </li>
     </ol>
-    {% if site.product_short == "Beacon" %}
-    <p>The videos will automatically be ingested into Beacon.</p>
-    {% endif %}
-  </section>
-
-  {% if site.product_short == "Beacon Classic" %}
-  <section class="bcls-section">
-    <h2 id="Ingesting_the_videos_into_Brightcove_Beacon"> Ingesting the videos into Brightcove Beacon </h2>
+    {% if site.product_short == balise-fr/ %}
+    <p>Les vidéos seront automatiquement intégrées à Beacon.</p>
+    {% endif %}</section> {% if site.product_short == Beacon Classic-fr/ %} <section class="bcls-section">
+    <h2 id="Ingesting_the_videos_into_Brightcove_Beacon"> Insertion des vidéos dans Brightcove Beacon </h2>
     <p>
-      You now have associated one or videos with your SVOD plan. You now have to ingest those associations into Brightcove Beacon. To do this, follow these steps:
+      Vous avez maintenant associé une ou plusieurs vidéos à votre forfait SVOD. Vous devez maintenant intégrer ces associations dans Brightcove Beacon. Pour ce faire, procédez comme suit:
     </p>
     <ol class="bcls-tasklist-restart">
-      <li>Log in to Brightcove Beacon.</li>
-      <li>Click on the wrench icon (Tools).</li>
-      <li>From the left side navigation click <strong>Ingestion</strong>.</li>
-      <li>Click the <strong>Update Brightcove Videos</strong> button.</li>
+      <li>Connectez-vous à Brightcove Beacon.</li>
+      <li>Cliquez sur l'icône en forme de clé (Outils).</li>
+      <li>Dans le menu de navigation de gauche, cliquez sur<strong> Ingestion</strong>.</li>
+      <li>Cliquez sur le<strong> bouton</strong> Mettre à jour les vidéos Brightcove.</li>
       <li>
-        If any errors are reported, check those to be sure none are related to your SVOD plan.
+        Si des erreurs sont signalées, vérifiez-les pour vous assurer qu'aucune n'est liée à votre forfait SVOD.
       </li>
       <li>
-        If you wish to have the new associations immediately active in Brightcove Beacon, you must clear the current cache. To do this, from the left side navigation click <strong>Cache</strong>, then click <strong>Cache Purge</strong>.
+        Si vous souhaitez que les nouvelles associations soient immédiatement actives dans Brightcove Beacon, vous devez vider le cache actuel. Pour ce faire, dans le menu de navigation de gauche, cliquez sur<strong> Cache</strong>, puis sur Purge<strong> du cache</strong>.
       </li>
     </ol>
     <p>
-      For more details on the actions taken in this section, see the <a href="/using-brightcove-beacon/tools.html">Using the Tools</a> document.
-    </p>
-  </section>
-  {% endif %}
-</article>
+      Pour plus de détails sur les actions entreprises dans cette section, consultez le<a href="/using-brightcove-beacon/tools.html"> document</a> Utilisation des outils.
+    </p> </section> {% endif %} </article>

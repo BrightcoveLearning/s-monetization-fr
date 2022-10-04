@@ -1,41 +1,33 @@
-<h1>{{ page.title }}</h1>
-<article class="bcls-article">
-  <summary>{{ page.description }}</summary>
-
-  <section class="bcls-section">
-    <h2 id="Overview">Overview</h2>
+<h1>{{page.title}}</h1> <article class="bcls-article"> <summary>{{page.description}}</summary> <section class="bcls-section">
+    <h2 id="Overview">Aperçu</h2>
     <p>
-      A monetization package defines how you can generate revenue from your app, if you choose to do so.
-    </p>
-  </section>
-  <section class="bcls-section">
+      Un package de monétisation définit la manière dont vous pouvez générer des revenus à partir de votre application, si vous le souhaitez.
+    </p>  </section><section class="bcls-section">
     <h2 id="Terms">
-      Terms
+      Termes
     </h2>
-    <p>Here is a list of term and acronym definitions:</p>
+    <p>Voici une liste de définitions de termes et d'acronymes:</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>Term</th>
-          <th>Definition</th>
+          <th>Durée</th>
+          <th>Définition</th>
         </tr>
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td>AVOD</td>
-          <td>Advertising-based video on demand
+          <td>ÉVITER</td>
+          <td>Vidéo à la demande basée sur la publicité
           </td>
         </tr>
         <tr>
-          <td>AuthVOD</td>
-          <td>Authenticated video on demand<br>
-            <em>*Note that AuthVOD can be implemented with and without ads</em>
+          <td>Auth VOD</td>
+          <td>Vidéo authentifiée à la demande<br> <em>*Notez que AuthVOD peut être implémenté avec et sans publicité</em>
           </td>
         </tr>
         <tr>
           <td>SVOD</td>
-          <td>Subscription video on demand<br>
-            <em>*Note that SVOD can be implemented with and without ads</em>
+          <td>Vidéo d'abonnement à la demande<br> <em>*Notez que la SVOD peut être mise en œuvre avec et sans publicité</em>
           </td>
         </tr>
         <!-- <tr>
@@ -44,18 +36,14 @@
           </tr> -->
         <tr>
           <td>VOD</td>
-          <td>Video on demand generally refers to video on demand services through cable networks.</td>
+          <td>La vidéo à la demande fait généralement référence aux services de vidéo à la demande via les réseaux câblés.</td>
         </tr>
       </tbody>
-    </table>
-
-  </section>
-
-  <section class="bcls-section">
+    </table>  </section><section class="bcls-section">
     <h2 id="Monetization_packages">
-      Monetization packages
+      Forfaits de monétisation
     </h2>
-    <p>Here are the packages offered with Brightcove Beacon. Choose the one that best fits your needs.</p>
+    <p>Voici les packages proposés avec Brightcove Beacon. Choisissez celui qui répond le mieux à vos besoins.</p>
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
@@ -65,67 +53,67 @@
       </thead>
       <tbody class="bcls-table__body">
         <tr>
-          <td>Free</td>
+          <td>Gratuit</td>
           <td>
             <ul>
-              <li>Visitors can view ad-free content in this plan without authentication.</li>
+              <li>Les visiteurs peuvent consulter le contenu sans publicité de ce forfait sans s'authentifier.</li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>AVOD</td>
+          <td>ÉVITER</td>
           <td>
             <ul>
-              <li>Visitors can view content containing ads in this plan without authentication.</li>
-              <li>Generally free to consumers since advertisements are shown.</li>
+              <li>Les visiteurs peuvent consulter le contenu contenant des publicités dans ce forfait sans s'authentifier.</li>
+              <li>Généralement gratuit pour les consommateurs puisque des publicités sont diffusées.</li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>AuthVOD without ads</td>
+          <td>AuthVOD sans publicité</td>
           <td>
             <ul>
-              <li>Authenticated users can view ad-free content in this plan by signing in.</li>
-              <li> This model often requires users to log in using credentials from another platform, service, cable (TVE), or cellular subscription in order to access content.</li>
-              <li>Valuable when coordinating with partnerships or managing multiple properties or branded services.</li>
+              <li>Les utilisateurs authentifiés peuvent consulter le contenu sans publicité de ce forfait en se connectant.</li>
+              <li> Ce modèle exige souvent que les utilisateurs se connectent à l'aide d'informations d'identification provenant d'une autre plate-forme, d'un autre service, d'un autre câble (TVE) ou d'un abonnement cellulaire afin d'accéder au contenu.</li>
+              <li>Très utile lors de la coordination avec des partenariats ou de la gestion de plusieurs propriétés ou services de marque</li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>AuthVOD with ads</td>
+          <td>AuthVOD avec des publicités</td>
           <td>
             <ul>
-              <li>Authenticated users view content containing ads in this plan by signing in.</li>
-              <li>Since viewers have authenticated, they can, for example, make “watchlists” of content and “pause and resume” across devices.</li>
-              <li>The service provider can learn more about the end viewer for marketing and advertising purposes.</li>
-              <li>Can be thought of as an AuthVOD/AVOD combination.</li>
+              <li>Les utilisateurs authentifiés consultent le contenu contenant des publicités de ce forfait en se connectant.</li>
+              <li>Puisque les spectateurs se sont authentifiés, ils peuvent, par exemple, créer des listes de surveillance-fr/ de contenu et mettre en pause et reprendre-fr/ sur tous les appareils.</li>
+              <li>Le fournisseur de services peut en savoir plus sur le spectateur final à des fins de marketing et de publicité.</li>
+              <li>Peut être considéré comme une combinaison AuthVOD/Avod.</li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>SVOD without ads</td>
+          <td>SVOD sans publicité</td>
           <td>
             <ul>
-              <li>Subscribers can view ad-free content in this plan.</li>
-              <li>It allows users to consume as much content as they desire at a flat rate per month without ads.</li>
+              <li>Les abonnés peuvent visionner du contenu sans publicité dans ce plan.</li>
+              <li>Il permet aux utilisateurs de consommer autant de contenu qu'ils le souhaitent à un tarif forfaitaire par mois sans publicité.</li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>SVOD with ads</td>
+          <td>SVOD avec publicités</td>
           <td>
             <ul>
-              <li>Subscribers can view content with advertisements in this plan.</li>
-              <li>Subscribers may pay a lower monthly rate, but with the lower rate ads must be viewed.</li>
-              <li>Can be thought of as an SVOD/AVOD combination.</li>
+              <li>Les abonnés peuvent voir du contenu avec des publicités dans ce forfait.</li>
+              <li>Les abonnés peuvent payer un tarif mensuel inférieur, mais avec le tarif inférieur, les publicités doivent être visionnées.</li>
+              <li>Peut être considéré comme une combinaison SVOD/AVOD.</li>
             </ul>
           </td>
         </tr>
         <tr>
-          <td>Mixed</td>
+          <td>Mixte</td>
           <td>
             <ul>
-              <li>Subscribers can view content with a mixture of AVOD and SVOD options.</li>
+              <li>Les abonnés peuvent visionner du contenu avec un mélange d'options AVOD et SVOD.</li>
             </ul>
           </td>
         </tr>
@@ -143,7 +131,4 @@
           </tr>-->
 
       </tbody>
-    </table>
-  </section>
-
-</article>
+    </table>  </section></article>

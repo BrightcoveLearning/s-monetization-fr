@@ -1,232 +1,151 @@
-<h1>{{ page.title }}</h1>
-<article class="bcls-article">
-  <summary>{{ page.description }}</summary>
-
-  <section class="bcls-section">
-    <h2 id="overview">Overview</h2>
+<h1>{{page.title}}</h1> <article class="bcls-article"> <summary>{{page.description}}</summary> <section class="bcls-section">
+    <h2 id="overview">Aperçu</h2>
 
     <p>
-      Brightcove Beacon supports Server-Side Ad Insertion (SSAI) in Live events so server-side ads can be requested and displayed during a Live stream. Note: if you are using redundancy with SSAI, you must insert ads into all jobs in the group at the same time.
+      Brightcove Beacon prend en charge l'insertion de publicités côté serveur (SSAI) dans les événements en direct afin que les publicités côté serveur puissent être demandées et affichées pendant une diffusion en direct. Remarque: si vous utilisez la redondance avec SSAI, vous devez insérer des annonces dans tous les emplois du groupe en même temps.
     </p>
-    <p>A high-level view of the process is:</p>
+    <p>Voici une vue de haut niveau du processus:</p>
     <ol class="bcls-tasklist">
-      <li>Create an Ad Configuration in Studio.</li>
-      <li>Create a fill slate for your Live event.</li>
-      <li>Create a Live event with SSAI enabled.</li>
-      <li>Publish the Live event to Brightcove Beacon.</li>
-    </ol>
-    <aside class="bcls-aside bcls-aside--information">
-      This document is complementary to the
-      <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">Streaming a Live Event</a> documentation to guide you into add SSAI to your live events. For detailed information on how to create an event, please see the section on <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#create" target="_blank">Creating a live event in Brightcove Beacon</a>.
-    </aside>
+      <li>Créez une configuration publicitaire dans Studio.</li>
+      <li>Créez une table de remplissage pour votre événement Live.</li>
+      <li>Créez un événement en direct avec SSAI activé.</li>
+      <li>Publiez l'événement en direct sur Brightcove Beacon.</li>
+    </ol> <aside class="bcls-aside bcls-aside--information"> Ce document est complémentaire à la<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank"> documentation</a> Streaming a Live Event pour vous guider dans l'ajout de SSAI à vos événements en direct. Pour plus d'informations sur la façon de créer un événement, consultez la section<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#create" target="_blank"> Création d'un événement en direct dans Brightcove Beacon</a>. </aside>
 
-    <p>SSAI provides these main features during Live events:</p>
+    <p>SSAI fournit les principales fonctionnalités suivantes lors des événements en direct:</p>
     <ul>
       <li>
-        Since ads are stitched into the Live video stream on the server-side, they are not affected by ad blockers.
+        Comme les publicités sont intégrées au flux vidéo en direct côté serveur, elles ne sont pas affectées par les bloqueurs de publicités.
       </li>
       <li>
-        Ads are inserted at cue points sent from your encoder or you can create an instant cue point using the Live module Control Room.
+        Les publicités sont insérées aux points de repère envoyés par votre encodeur ou vous pouvez créer un point de repère instantané à l'aide du module Live Control Room.
       </li>
       <li>
-        You can configure
-        <a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#fill_slate" target="_blank">fill slates</a> to fill any unused ad time.
+        Vous pouvez configurer des<a href="https://live.support.brightcove.com/live-module/implementing-server-side-ads-live-module.html#fill_slate" target="_blank"> listes de remplissage</a> pour remplir tout temps publicitaire non utilisé.
       </li>
-    </ul>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Configuring_Server-Side_Ad_Settings">Configuring Server-Side Ad Settings</h2>
+    </ul>  </section><section class="bcls-section">
+    <h2 id="Configuring_Server-Side_Ad_Settings">Configuration des paramètres des publicités côté serveur</h2>
     <p>
-      Here you will create an SSAI Ad Configuration to be used as your set of ads that will be displayed in your Brightcove Beacon Live event.
+      Ici, vous allez créer une configuration publicitaire SSAI qui sera utilisée comme ensemble d'annonces qui seront affichées dans votre événement Brightcove Beacon Live.
     </p>
     <ol class="bcls-tasklist-restart">
-      <li>Log in to Studio.</li>
+      <li>Connectez-vous à Studio.</li>
       <li>
-        In the navigation header, click <strong>ADMIN</strong> and select <strong>Server-Side Ad Settings</strong>. A list of all ad configurations will be displayed.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/1-studio-ssai-settings.png" />
-        </figure>
+        Dans l'en-tête de navigation, cliquez sur<strong> ADMIN</strong> et sélectionnez Paramètres des publicités<strong> côté serveur</strong>. Une liste de toutes les configurations d'annonces s'affiche. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/1-studio-ssai-settings.png" /> </figure>
       </li>
       <li>
-        To create a new ad configuration, click the
-        <strong>Create Ad Configuration</strong> button.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/2-create-ad-configuration.png" />
-        </figure>
-        <aside class="bcls-aside bcls-aside--information">
-          Server-side Live ad configurations can also be managed using the Live API. For information, see
-          <a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html#Create_an_ad_configuration" target="_blank">Brightcove Live API: Server-Side Ad Insertion (SSAI)</a>.
-        </aside>
+        Pour créer une nouvelle configuration publicitaire, cliquez sur le<strong> bouton</strong> Créer une configuration publicitaire. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/2-create-ad-configuration.png" /> </figure> <aside class="bcls-aside bcls-aside--information"> Les configurations d'annonces en direct côté serveur peuvent également être gérées à l'aide de l'API Live. Pour plus d'informations, consultez l'API Live de<a href="https://live.support.brightcove.com/live-api/ssai/live-api-server-side-ad-insertion-ssai.html#Create_an_ad_configuration" target="_blank"> Brightcove: Insertion de publicités côté serveur (SSAI)</a>. </aside>
       </li>
       <li>
-        From the dropdown, select <strong>Live</strong> as a type.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/3-ad-config-live.png" />
-        </figure>
+        Dans la liste déroulante, sélectionnez<strong> Live</strong> as a type. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/3-ad-config-live.png" /> </figure>
       </li>
       <li>
-        Check to be sure you are seeing the
-        <strong>Server-Side Ad Settings</strong> form.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/4-ad-config-form.png" />
-        </figure>
+        Vérifiez que le<strong> formulaire Paramètres des publicités</strong> côté serveur s'affiche. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/4-ad-config-form.png" /> </figure>
       </li>
-      <li>Give your ad configuration a <strong>Name</strong>.</li>
+      <li>Donnez un<strong> nom à la configuration de votre annonce</strong>.</li>
       <li>
-        Select the <strong>Ad Server Response</strong>:
+        Sélectionnez la réponse du serveur<strong> publicitaire</strong>:
         <ul>
-          <li><strong>VAST</strong></li>
-          <li><strong>DFP (Ad Rules)</strong></li>
-          <li><strong>Smart XML</strong></li>
-        </ul>
-        <aside class="bcls-aside bcls-aside--information">
-          Please check with your ad operations manager for the correct value to select.
-        </aside>
+          <li><strong>VASTE</strong></li>
+          <li><strong>DFP (règles publicitaires)</strong></li>
+          <li><strong>XML intelligent</strong></li>
+        </ul> <aside class="bcls-aside bcls-aside--information"> Vérifiez auprès de votre responsable des opérations publicitaires la valeur correcte à sélectionner. </aside>
       </li>
-      <li>Enter the <strong>Ad Tag (server URL)</strong>.</li>
-      <li>Click the <strong>Save</strong> button.</li>
+      <li>Saisissez le tag<strong> publicitaire (URL du serveur)</strong>.</li>
+      <li>Cliquez sur le<strong> bouton</strong> Enregistrer.</li>
       <li id="Ad_Configuration_ID">
-        Copy the value of your Ad Configuration ID. You will use this in a <a href="#Live_Ad_Config_ID">later step</a>.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="Ad configuration ID" src="/assets/images/s-monetization-img/live-ssai/ad-config-id.png" />
-        </figure>
+        Copiez la valeur de votre ID de configuration publicitaire. Vous l'utiliserez<a href="#Live_Ad_Config_ID"> ultérieurement</a>. <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="ID de configuration des annonces" src="/assets/images/s-monetization-img/live-ssai/ad-config-id.png" /> </figure>
       </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Configuring_a_Fill_Slate">Configuring a Fill Slate</h2>
+    </ol>  </section><section class="bcls-section">
+    <h2 id="Configuring_a_Fill_Slate">Configuration d'un Fill Slate</h2>
     <p>
-      Fill slates are videos that will be displayed when there are gaps in a Live stream ad break that cannot be filled with a dynamically-served ad. If the requested ad is shorter than the Ad break time, the fill slate will be displayed so viewers don't see a blank player.
-    </p>
-    <aside class="bcls-aside bcls-aside--information">
-      You should configure at least one fill slate before requesting a server-side ad.
-    </aside>
-    <p>To add a fill slate, follow these steps:</p>
+      Les listes de remplissage sont des vidéos qui seront affichées lorsqu'il y a des espaces vides dans une pause de diffusion en direct qui ne peuvent pas être comblées par une annonce diffusée dynamiquement. Si la publicité demandée est plus courte que le temps de pause de la publicité, la page de remplissage sera affichée afin que les spectateurs ne voient pas de lecteur vide.
+    </p> <aside class="bcls-aside bcls-aside--information"> Vous devez configurer au moins une liste de remplissage avant de demander une publicité côté serveur. </aside>
+    <p>Pour ajouter une ardoise de remplissage, procédez comme suit:</p>
     <ol class="bcls-tasklist">
       <li>
-        Click the <strong>ADMIN</strong> > <strong>Live Settings</strong> link in the Studio header.
-        <aside class="bcls-aside bcls-aside--information">
-          You must be an account administrator to access the <strong>ADMIN</strong> menu.
-        </aside>
+        Cliquez sur le<strong> lien</strong> ADMIN<strong> &gt; Paramètres en</strong> direct dans l'en-tête Studio. <aside class="bcls-aside bcls-aside--information"> Vous devez être administrateur de compte pour accéder au<strong> menu</strong> ADMIN. </aside>
       </li>
       <li>
-        Click <strong>+ Add Fill Slate</strong>. You should be seeing the following form:
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/5-fill-slate.png" />
-        </figure>
+        Cliquez sur<strong> + Ajouter une ardoise de remplissage</strong>. Le formulaire suivant devrait s'afficher: <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/5-fill-slate.png" /> </figure>
       </li>
-      <li>Enter a <strong>Name</strong> for your fill slate.</li>
-      <li>Enter the <strong>Source URL</strong> for the slate.</li>
-      <li>Click <strong>Save</strong>. The ingestion process for the slate will begin.</li>
+      <li>Saisissez un<strong> nom</strong> pour votre ardoise de remplissage.</li>
+      <li>Saisissez l'URL<strong> source</strong> de la liste.</li>
+      <li>Cliquez sur<strong> Enregistrer</strong>. Le processus d'ingestion de l'ardoise va commencer.</li>
     </ol>
-    <p>To delete a fill slate, click the delete button (<img alt="" src="/assets/images/s-monetization-img/live-ssai/node18588-delete-icon.png" />) next to the fill slate.</p>
-  </section>
-
-  <section class="bcls-section">
-    <h2 id="Creating_a_Live_event_that_supports_SSAI">Creating a Live event that supports SSAI</h2>
+    <p>Pour supprimer une ardoise de remplissage, cliquez sur le bouton Supprimer (<img alt="" src="/assets/images/s-monetization-img/live-ssai/node18588-delete-icon.png" />) en regard de la ardoise de remplissage.</p>  </section><section class="bcls-section">
+    <h2 id="Creating_a_Live_event_that_supports_SSAI">Création d'un événement en direct qui prend en charge SSAI</h2>
     <p>
-      In order for a live event to use SSAI (Server-side Ad Insertion), the
-      <strong>Enable Server-Side Ad Insertion (SSAI)</strong> setting must be selected when the event is created, and a previously created fill slate should be chosen for playback.
+      Pour qu'un événement en direct utilise SSAI (Server-side Ad Insertion), le<strong> paramètre</strong> Activer l'insertion publicitaire côté serveur (SSAI) doit être sélectionné lors de la création de l'événement, et une ardoise de remplissage créée précédemment doit être sélectionnée pour la lecteur.
     </p>
     <p>
-      Follow these steps to create an Event that supports SSAI ads in Brightcove Beacon:
+      Suivez ces étapes pour créer un événement prenant en charge les publicités SSAI dans Brightcove Beacon:
     </p>
     <ol class="bcls-tasklist">
-      <li>Open the <strong>Live</strong> module in Studio.</li>
-      <li>From the <strong>Manage Events</strong> page, click <strong>Create Event</strong>.</li>
+      <li>Ouvrez le<strong> module</strong> Live dans Studio.</li>
+      <li>Sur la<strong> page</strong> Gérer les événements, cliquez sur<strong> Créer un événement</strong>.</li>
       <li>
-        Enter your event details. For complete information on creating a live event using the Live module, please see
-        <a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html" target="_blank">
-          Creating and Managing Live Events using the Live Module</a>.
+        Saisissez les détails de votre événement. Pour plus d'informations sur la création d'un événement en direct à l'aide du module Live, veuillez consulter<a href="https://live.support.brightcove.com/live-module/creating-and-managing-live-events-using-live-module.html" target="_blank"> Création et gestion d'événements en direct à l'aide du module Live</a>.
       </li>
-      <li>Click <strong>ADVANCED OPTIONS</strong> to expand the advanced options.</li>
-      <li>Check <strong>Enable Server-Side Ad Insertion (SSAI)</strong>. This will enable server-side ad insertion.</li>
+      <li>Cliquez sur OPTIONS<strong> AVANCÉES</strong> pour développer les options avancées.</li>
+      <li>Cochez<strong> Activer l'insertion de publicités côté serveur (SSAI)</strong>. Cela permettra l'insertion d'annonces côté serveur.</li>
       <li>
-        Select a <strong>Fill Slate</strong>. The fill slate will be displayed when there are gaps in a live stream ad break that cannot be filled with a dynamically-served ad.
+        Sélectionnez une ardoise de<strong> remplissage</strong>. La liste de remplissage s'affiche lorsqu'il y a des espaces vides dans une pause de diffusion en direct qui ne peuvent pas être comblés par une annonce diffusée dynamiquement.
       </li>
       <li>
-        When the <strong>Ad Audio</strong> setting is checked, the audio levels on ads will be normalized based on the adjustment that is set. This can be used as a way to help make sure ads aren’t significantly louder than the content. Brightcove recommends selecting this option.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" width="450" height="700" src="/assets/images/s-monetization-img/live-ssai/6-ssai-check.png" />
-        </figure>
+        Lorsque le<strong> paramètre</strong> Ad Audio est coché, les niveaux audio des annonces sont normalisés en fonction du réglage défini. Cela peut être utilisé pour s'assurer que les publicités ne sont pas beaucoup plus fortes que le contenu.™ Brightcove recommande de sélectionner cette option. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" width="450" height="700" src="/assets/images/s-monetization-img/live-ssai/6-ssai-check.png" /> </figure>
       </li>
-      <li>Click <strong>Create Event</strong></li>
+      <li>Cliquez sur<strong> Créer un événement</strong></li>
       <li>
-        The <strong>Control Room</strong> page will open with details about the Live event including the <strong>Streaming Endpoint (RTMP URL)</strong> and <strong>Stream Name</strong>. These values will be used by the encoder.
+        La<strong> page</strong> Control Room s'ouvre avec des détails sur l'événement en direct, y compris le point de terminaison de<strong> diffusion (URL RTMP)</strong> et le nom du<strong> flux</strong>. Ces valeurs seront utilisées par l'encodeur.
       </li>
       <li>
-        Configure your encoder and start the Live stream.
-        <aside class="bcls-aside bcls-aside--information">
-          To start streaming in the Live platform, you will need an Encoder, for information on how to use an encoder please read the following the documentation:
-          <p>
-            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-telestream-wirecast.html" target="_blank">Step-by-Step: Using the Live Module with Telestream Wirecast</a>
+        Configurez votre encodeur et lancez la diffusion en direct. <aside class="bcls-aside bcls-aside--information"> Pour démarrer le streaming sur la plateforme Live, vous aurez besoin d'un encodeur. Pour plus d'informations sur l'utilisation d'un encodeur, veuillez lire la documentation suivante:
+          <p> <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-telestream-wirecast.html" target="_blank">Étape par étape: Utilisation du module Live avec Telestream Wirecast</a>
           </p>
-          <p>
-            <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-open-broadcaster-software-obs.html" target="_blank">Step-by-Step: Using the Live Module with Open Broadcaster Software (OBS)</a>
-          </p>
-        </aside>
+          <p> <a href="https://live.support.brightcove.com/get-started/step-step-using-live-module-open-broadcaster-software-obs.html" target="_blank">Étape par étape: Utilisation du module Live avec Open Broadcaster Software (OBS)</a>
+          </p> </aside>
       </li>
       <li>
-        By default, the <strong>Control Room</strong> preview player shows the ad-free stream. Ads will not be shown in the <strong>Control Room</strong> unless a Live ad configuration is selected. Use the dropdown below to the player to select an ad configuration.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/7-select-ad-config.png" />
-        </figure>
+        Par défaut, le lecteur d'<strong>aperçu de la</strong> Control Room affiche le flux sans publicité. Les publicités ne seront pas diffusées dans la<strong> Control Room</strong> tant qu'une configuration de publicité en direct n'est pas sélectionnée. Utilisez le menu déroulant ci-dessous pour accéder au lecteur pour sélectionner une configuration publicitaire. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/7-select-ad-config.png" /> </figure>
       </li>
       <li>
-        (Optional) Click the plus button (<img alt="" src="/assets/images/s-monetization-img/live-ssai/node18753-plus-icon.png" />) to select an additional ad configuration. Doing this will add another preview player on the <strong>Control Room</strong> page.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/8-two-preview-players.png" />
-        </figure>
+        (Facultatif) Cliquez sur le bouton plus (<img alt="" src="/assets/images/s-monetization-img/live-ssai/node18753-plus-icon.png" />) pour sélectionner une configuration publicitaire supplémentaire. Cela ajoutera un autre lecteur d'aperçu sur la<strong> page</strong> Control Room. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/8-two-preview-players.png" /> </figure>
         <p>
-          Click the volume button below the preview player to control which player audio stream is active.
+          Cliquez sur le bouton de volume situé sous le lecteur de prévisualisation pour contrôler le flux audio du lecteur actif.
         </p>
       </li>
-    </ol>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Requesting_an_ad">Requesting an ad</h2>
+    </ol>  </section><section class="bcls-section">
+    <h2 id="Requesting_an_ad">Demande d'une annonce</h2>
     <p>
-      Follow these steps to request an ad in the Live <strong>Control Room</strong>:
+      Suivez ces étapes pour demander une publicité dans la salle de<strong> contrôle en direct</strong>:
     </p>
     <ol class="bcls-tasklist">
       <li>
-        Click <strong>Insert Ad</strong> and from the dropdown choose the length of your desired ad break.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" width="350" height="500" src="/assets/images/s-monetization-img/live-ssai/9-gotoad.png" />
-        </figure>
+        Cliquez sur<strong> Insérer une annonce</strong> et, dans la liste déroulante, choisissez la durée de la pause publicitaire de votre choix. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" width="350" height="500" src="/assets/images/s-monetization-img/live-ssai/9-gotoad.png" /> </figure>
       </li>
       <li>
-        Click <strong>Insert</strong> to insert an ad break into the live stream. If the ad doesn't fill the entire ad break time, the fill slate (being selected when the event was created) will be displayed.
+        Cliquez sur <strong></strong>Insérer pour insérer une pause publicitaire dans la diffusion en direct. Si l'annonce ne couvre pas tout le temps de pause publicitaire, la page de remplissage (sélectionnée lors de la création de l'événement) s'affiche.
       </li>
     </ol>
     <p>
-      Ads will be seen in the <strong>Control Room</strong> preview player and in players that are published using the Live module. This example shows 2 ads being displayed in the <strong>Control Room</strong>.
-    </p>
-    <figure class="bcls-figure">
-      <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/10-adsplayer.png" />
-    </figure>
-  </section>
-  <section class="bcls-section">
-    <h2 id="Publishing_a_Live_event">Publishing a Live event in Brightcove Beacon</h2>
+      Les publicités seront visibles dans le lecteur d'<strong>aperçu de la</strong> Control Room et dans les lecteurs publiés à l'aide du module Live. Cet exemple montre deux publicités affichées dans la<strong> Control Room</strong>.
+    </p>     <figure class="bcls-figure"><img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/10-adsplayer.png" /></figure></section><section class="bcls-section">
+    <h2 id="Publishing_a_Live_event">Publier un événement en direct dans Brightcove Beacon</h2>
     <p>
-      To publish your Live event with server-side ads in Brightcove Beacon, follow these steps:
+      Pour publier votre événement en direct avec des publicités côté serveur dans Brightcove Beacon, procédez comme suit:
     </p>
     <ol class="bcls-tasklist">
-      <li>In the Live <strong>Control Room</strong> click <strong>Publish and Embed</strong> in the left navigation.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/11-controlroom.png" />
-        </figure>
+      <li>Dans la salle de<strong> contrôle en direct,</strong> cliquez sur<strong> Publier et intégrer</strong> dans le menu de navigation de gauche. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/11-controlroom.png" /> </figure>
       </li>
 
-      <li>In the <strong>Live Player Options</strong> select an <strong>Available Player</strong>.</li>
+      <li>Dans les options du lecteur<strong> en direct,</strong> sélectionnez un lecteur<strong> disponible</strong>.</li>
       <li>
-        Select your <strong>Ad Configuration</strong> previously created in the <strong>Server-Side Ad Settings</strong>.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/12-select-player.png" />
-        </figure>
+        Sélectionnez votre configuration<strong> publicitaire</strong> précédemment créée dans les paramètres des publicités<strong> côté serveur</strong>. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/12-select-player.png" /> </figure>
       </li>
       <li>
-        After selecting your <strong>Available Player</strong> and <strong>Ad Configuration</strong>, a new Player URL will be generated.
+        Après avoir sélectionné votre lecteur<strong> disponible</strong> et la configuration<strong> publicitaire</strong>, une nouvelle URL de lecteur sera générée.
       </li>
       <!-- <li>
         Copy the selected part of the URL as shown
@@ -235,76 +154,49 @@
           <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/13-player-url.png" />
         </figure>
       </li> -->
-      <li>Go to the Brightcove Beacon Platform.</li>
+      <li>Accédez à la plate-forme Brightcove Beacon.</li>
       <li>
-        In Brightcove Beacon, in the upper menu, click the <strong>Advertisement</strong> tab.
+        Dans Brightcove Beacon, dans le menu supérieur, cliquez sur l'<strong>onglet</strong> Publicité.
       </li>
       <li>
-        Click the <strong>Add New Configuration</strong> button.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/14-newadconfig.png" />
-        </figure>
+        Cliquez sur le<strong> bouton</strong> Ajouter une nouvelle configuration. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/14-newadconfig.png" /> </figure>
       </li>
       <li>
-        Check to be sure you are seeing the <strong>New Advertisement</strong> form.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="New Advertisement form" src="/assets/images/s-monetization-img/live-ssai/15-newadconfig-settings.png" />
-        </figure>
+        Vérifiez que vous voyez bien le<strong> formulaire</strong> Nouvelle annonce. <figure class="bcls-figure">
+          <img class="bcls-image--no-border" alt="Nouveau formulaire d'annonce" src="/assets/images/s-monetization-img/live-ssai/15-newadconfig-settings.png" /> </figure>
       </li>
-      <li>Give your new advertisement configuration a <strong>Name</strong>.</li>
+      <li>Donnez un<strong> nom à votre nouvelle configuration de publicité</strong>.</li>
       <li id="Live_Ad_Config_ID">
-        In the <strong>Live Ad Config ID</strong>, paste your <strong>Ad Configuration ID</strong> that you created in a <a href="#Ad_Configuration_ID">previous step</a>.
-        <aside class="bcls-aside bcls-aside--information">When using Live events, the Beacon <strong>Live Ad Config ID</strong> value is the Ad Configuration ID instead of the Live playback token.</aside>
+        Dans l'ID de configuration<strong> Live Ad</strong>, collez votre ID de configuration<strong> publicitaire</strong> que vous avez créé lors d'une étape<a href="#Ad_Configuration_ID"> précédente</a>. <aside class="bcls-aside bcls-aside--information">Lorsque vous utilisez des événements en direct, la<strong> valeur de l'ID de configuration de Beacon</strong> Live Ad est l'ID de configuration publicitaire au lieu du jeton de lecteur en direct.</aside>
       </li>
-      <li>From the <strong>Provider</strong> menu select <strong>Brightcove SSAI</strong>.</li>
-      <li>Click the <strong>Create New Advertisement</strong> button.</li>
+      <li>Dans le<strong> menu</strong> Fournisseur, sélectionnez<strong> Brightcove SSAI</strong>.</li>
+      <li>Cliquez sur le<strong> bouton</strong> Créer une nouvelle publicité.</li>
       <li>
-        Click the upper menu <strong>Events</strong> tab and create or select your Live event. For more information in how to create a Brightcove Beacon Live Event, please see
-        the
-        <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank">Streaming a Live Event</a>
-        document.
-        <aside class="bcls-aside bcls-aside--information">
-          For the Live event to stream successfully in Brightcove Beacon, the <strong>Job ID</strong> and <strong>Stream Video ID</strong> must match the IDs of the current Live event.
-        </aside>
+        Cliquez sur l'<strong>onglet</strong> Événements du menu supérieur et créez ou sélectionnez votre événement en direct. Pour plus d'informations sur la création d'un événement en direct Brightcove Beacon, consultez le<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html" target="_blank"> document</a> Streaming d'un événement en direct. <aside class="bcls-aside bcls-aside--information"> Pour que l'événement en direct soit diffusé correctement dans Brightcove Beacon, l'ID de la<strong> tâche</strong> et l'ID de la vidéo en<strong> continu</strong> doivent correspondre aux ID de l'événement en direct actuel. </aside>
       </li>
       <li>
-        In you Brightcove Beacon Live Event click the <strong>Rights & Scheduling</strong> tab.
+        Dans votre événement Brightcove Beacon Live, cliquez sur l'<strong>onglet</strong> Droits et planification.
       </li>
       <li>
-        In the <strong>Rights Type</strong> dropdown menu, select <strong>Advertising - AVOD</strong>.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/16-ad-avod.png" />
-        </figure>
+        Dans le menu<strong> déroulant Type de</strong> droits, sélectionnez<strong> Publicité - AVOD</strong>. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/16-ad-avod.png" /> </figure>
       </li>
       <li>
-        In the <strong>Advertisement Configuration</strong> bottom menu, select your previously created advertisement configuration.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/17-ad-configuration.png" />
-        </figure>
+        Dans le menu <strong></strong>inférieur Configuration de la publication, sélectionnez la configuration de publication que vous avez créée précédemment. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/17-ad-configuration.png" /> </figure>
       </li>
-      <li>Click the <strong>Update Event</strong> button.</li>
+      <li>Cliquez sur le<strong> bouton</strong> Mettre à jour l'événement.</li>
       <li>
-        Click on the <strong>Tools</strong> (wrench) button in the upper right of the screen. Then clear the cache.
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/18-clear-cache.png" />
-        </figure>
+        Cliquez sur le bouton<strong> Outils</strong> (clé) en haut à droite de l'écran. Ensuite, effacez le cache. <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" src="/assets/images/s-monetization-img/live-ssai/18-clear-cache.png" /> </figure>
       </li>
       <li>
-        Open your Brightcove Beacon App and select your event (the event names and pictures on the image are for example purposes only).
-        <figure class="bcls-figure">
-          <img class="bcls-image--no-border" alt="" width="400" height="700" src="/assets/images/s-monetization-img/live-ssai/19-app-event.png" />
-        </figure>
+        Ouvrez votre application Brightcove Beacon et sélectionnez votre événement (les noms et les images de l'événement sur l'image ne sont fournis qu'à titre d'exemple). <figure class="bcls-figure"> <img class="bcls-image--no-border" alt="" width="400" height="700" src="/assets/images/s-monetization-img/live-ssai/19-app-event.png" /> </figure>
       </li>
       <li>
-        In your Brightcove Beacon app, click on the <strong>Play</strong> button. You should now be able to see your Live event streaming, with ads inserted by SSAI from Video Cloud.
+        Dans votre application Brightcove Beacon, cliquez sur le<strong> bouton</strong> Lire. Vous devriez maintenant être en mesure de voir le streaming de votre événement en direct, avec les publicités insérées par SSAI depuis Video Cloud.
       </li>
     </ol>
     <p>
-      Once your event ends, you can save all or part of it as a clip that becomes a video asset in Video Cloud or a playable stream that can be shown in Brightcove Beacon. The Ads of the Live event will not be saved, but the cue points from where the ads were transmitted will be registered so that you can add new ads in a later VOD of your recorded Live event.
+      Une fois votre événement terminé, vous pouvez l'enregistrer en totalité ou en partie sous forme de clip qui deviendra une ressource vidéo dans Video Cloud ou un flux lisible pouvant être diffusé dans Brightcove Beacon. Les publicités de l'événement en direct ne seront pas enregistrées, mais les points de repère à partir desquels les publicités ont été transmises seront enregistrés afin que vous puissiez ajouter de nouvelles publicités dans une VOD ultérieure de votre événement Live enregistré.
     </p>
     <p>
-      For more information on how to create a clip, please see the
-      <a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#Clip" target="_blank">Creating a Clip from your Live event</a> section from the <em>Streaming a Live Event</em> document.
-    </p>
-  </section>
-</article>
+      Pour plus d'informations sur la façon de créer un clip, veuillez consulter la<a href="https://beacon.support.brightcove.com/using-brightcove-beacon/streaming-live-event.html#Clip" target="_blank"> section</a> Création d'un clip à partir de votre événement en direct du<em> document</em> Streaming d'un événement en direct.
+    </p>  </section></article>
